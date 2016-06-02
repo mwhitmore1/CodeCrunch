@@ -23,10 +23,14 @@ namespace CodeCrunch.API.Models
         // May need to be changed
         public string CreatorName { get; set; }
 
-        // Relationships
-        // public Module Modules { get; set; }
-
         // Not sure what this is
         public int SearchBootcamp { get; set; }
+
+        // Relationships
+        public virtual ICollection<Module> Modules { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Bootcamp> Bootcamps { get; set; }
+
+        
     }
 }

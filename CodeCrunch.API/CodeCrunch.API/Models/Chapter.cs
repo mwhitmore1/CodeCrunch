@@ -19,6 +19,6 @@ namespace CodeCrunch.API.Models
             public string ChapterDescription { get; set; }
 
             //Relationships
-            public Module Module { get; set; }
+            public virtual Module Module { get; set; }
     }
 }

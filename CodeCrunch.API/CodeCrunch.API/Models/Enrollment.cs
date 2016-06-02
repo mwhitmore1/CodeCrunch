@@ -13,5 +13,9 @@ namespace CodeCrunch.API.Models
         // Foreign keys
         public string StudentId { get; set; }
         public int TrackId { get; set; }
+
+        // Relationships
+        public virtual Student Student { get; set; }
+        public virtual Track Track { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace CodeCrunch.API.Models
 
         //Foreign Key
         public int ModuleId { get; set; }
+        public string UserId { get; set; }
 
         //Other fields related to model
         public string Text { get; set; }
@@ -21,7 +22,8 @@ namespace CodeCrunch.API.Models
 
 
         //Relationships
-        public Module Module { get; set; }
-        public ModuleAnswer ModuleAnswer { get; set; }
+        public virtual User User { get; set; }
+        public virtual Module Module { get; set; }
+        public virtual ModuleAnswer ModuleAnswer { get; set; }
     }
 }
