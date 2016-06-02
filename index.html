@@ -11,7 +11,7 @@
 
     <title>TEAM CODECRUNCH</title>
 
-    <!-- Bootstrap Core CSS -->
+        <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -28,6 +28,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,6 +52,151 @@
             </div>
         </div>
     </header>
+
+<!--Login Section-->
+
+<!-- Modal -->
+                    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <br>
+                                <div class="bs-example bs-example-tabs">
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                                        <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                                        <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+                                    </ul>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="myTabContent" class="tab-content">
+                                        <div class="tab-pane fade in" id="why">
+                                            <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+                                            <p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade active in" id="signin">
+                                            <form class="form-horizontal">
+                                                <fieldset>
+
+<!-- Sign In Form -->
+<!-- Text input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="userid">Alias:</label>
+                                                        <div class="controls">
+                                                            <input required="" id="userid" name="userid" type="text" class="form-control input-medium" placeholder="JoeSixpack@aol.com">
+                                                        </div>
+                                                    </div>
+
+<!-- Password input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="passwordinput">Password:</label>
+                                                        <div class="controls">
+                                                            <input required="" id="passwordinput" name="passwordinput" class="form-control input-medium" type="password" placeholder="********">
+                                                        </div>
+                                                    </div>
+
+<!-- Multiple Checkboxes (inline) -->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="rememberme"></label>
+                                                        <div class="controls">
+                                                            <label class="checkbox inline" for="rememberme-0">
+                                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                                Remember me
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+<!-- Button -->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="signin"></label>
+                                                        <div class="controls">
+                                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="signup">
+                                            <form class="form-horizontal">
+                                                <fieldset>
+<!-- Sign Up Form -->
+<!-- Text input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="Email">Email:</label>
+                                                        <div class="controls">
+                                                            <input id="Email" name="Email" class="form-control input-large" type="text" placeholder="JoeSixpack@sixpacksrus.com" required="">
+                                                        </div>
+                                                    </div>
+
+<!-- Text input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="userid">Alias:</label>
+                                                        <div class="controls">
+                                                            <input id="userid" name="userid" class="form-control input-large" type="text" placeholder="JoeSixpack" required="">
+                                                        </div>
+                                                    </div>
+
+<!-- Password input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="password">Password:</label>
+                                                        <div class="controls">
+                                                            <input id="password" name="password" class="form-control input-large" type="password" placeholder="********" required="">
+                                                            <em>1-8 Characters</em>
+                                                        </div>
+                                                    </div>
+
+<!-- Text input-->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                                        <div class="controls">
+                                                            <input id="reenterpassword" class="form-control input-large" name="reenterpassword" type="password" placeholder="********" required="">
+                                                        </div>
+                                                    </div>
+
+<!-- Multiple Radios (inline) -->
+                                                    <br>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="humancheck">Humanity Check:</label>
+                                                        <div class="controls">
+                                                            <label class="radio inline" for="humancheck-0">
+                                                                <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot
+                                                            </label>
+                                                            <label class="radio inline" for="humancheck-1">
+                                                                <input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+ <!-- Button -->
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="confirmsignup"></label>
+                                                        <div class="controls">
+                                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <center>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--End Login-->
+
+
+
+
 <!--End carousel-->
 
     <section class="bg-primary" id="about">
@@ -60,6 +206,8 @@
                     <h2 class="section-heading">We've got what you need!</h2>
                     <hr class="light">
                     <p class="text-faded">In a world of sketchy startup universities fronted by orange skinned con-men, we have the solution to get you to a better career path. Trust us! </p>
+                    <p class="text-faded">Lorem ipsum is for losers!</p>
+
                     <a href="index_main.html" class="btn btn-default btn-xl">Get Started!</a>
                 </div>
             </div>
@@ -166,21 +314,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Login <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <li class="dropdown">
+                        <a href="#signup"
+                        data-toggle="modal" 
+                        data-target=".bs-modal-sm">
+                        <i class="fa fa-user">    
+                        </i> Login 
                         </li>
                     </ul>
                 </li>
@@ -188,7 +327,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
 
-            <!-- Deactivate SideBar
+            <!-- Deactivate SideBar Maybe I will make it ng-show in mouseover. Meh
 
 
 
@@ -257,6 +396,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
 
 </body>
 
