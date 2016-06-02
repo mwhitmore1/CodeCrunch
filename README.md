@@ -19,3 +19,6 @@ This is from
 
 http://startbootstrap.com/template-categories/all/
 
+Awsome fonts for icons
+http://fontawesome.io/
+
