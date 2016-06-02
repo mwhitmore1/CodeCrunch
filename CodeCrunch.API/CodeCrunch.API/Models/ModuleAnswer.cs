@@ -21,7 +21,7 @@ namespace CodeCrunch.API.Models
         public int DownVote { get; set; }
 
         //Relationships
-        public User User { get; set; }
-        public ModuleQuestion ModuleQuestion { get; set; }
+        public virtual User User { get; set; }
+        public virtual ModuleQuestion ModuleQuestion { get; set; }
     }
 }

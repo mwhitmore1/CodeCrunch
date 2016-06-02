@@ -22,8 +22,8 @@ namespace CodeCrunch.API.Models
 
 
         //Relationships
-        public User User { get; set; }
-        public Module Module { get; set; }
-        public ModuleAnswer ModuleAnswer { get; set; }
+        public virtual User User { get; set; }
+        public virtual Module Module { get; set; }
+        public virtual ModuleAnswer ModuleAnswer { get; set; }
     }
 }

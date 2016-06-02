@@ -22,7 +22,7 @@ namespace CodeCrunch.API.Models
         // flesh out eventually
         public string Perks { get; set; }
 
-        // Add tags
+        // Add tags here
 
         // not sure about data type
         public object Interests { get; set; }
@@ -31,7 +31,7 @@ namespace CodeCrunch.API.Models
         public string Blog { get; set; }
 
         // Relationships
-        public ICollection<Track> Tracks { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<Track> Tracks { get; set; }
+        public virtual virtual User User { get; set; }
     }
 }

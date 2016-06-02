@@ -17,6 +17,6 @@ namespace CodeCrunch.API.Models
         public byte[] Image { get; set; }
 
         // Relationships
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }
