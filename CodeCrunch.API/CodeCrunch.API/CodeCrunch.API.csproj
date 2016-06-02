@@ -124,6 +124,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\ModuleAnswer.cs" />
+    <Compile Include="Models\ModuleQuestion.cs" />
+    <Compile Include="Models\TrackModule.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Migrations\201606020151523_inital.cs" />
     <Compile Include="Migrations\201606020151523_inital.Designer.cs">
@@ -152,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606020151523_inital.resx">
