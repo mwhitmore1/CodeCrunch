@@ -78,12 +78,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\ModuleAnswer.cs" />
+    <Compile Include="Models\ModuleQuestion.cs" />
+    <Compile Include="Models\TrackModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
