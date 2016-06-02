@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.Design;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodeCrunch.API.Models
 {
@@ -23,7 +24,7 @@ namespace CodeCrunch.API.Models
         public string CreatorName { get; set; }
 
         // Relationships
-        public Module Modules { get; set; }
+        // public Module Modules { get; set; }
 
         // Not sure what this is
         public int SearchBootcamp { get; set; }
