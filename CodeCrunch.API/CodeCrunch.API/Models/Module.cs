@@ -18,14 +18,13 @@ namespace CodeCrunch.API.Models
         public string ModuleDescription { get; set; }
 
         // Relationships
-        public Chapter Chapter { get; set; }
-        public TrackModule TrackModule { get; set; }
-        public ModuleCompletion ModuleCompletion { get; set; }
-        public ModuleQuestion ModuleQuestion { get; set; }
+        public ICollection<Chapter> Chapters { get; set; }
+        public ICollection<TrackModule> TrackModules { get; set; }
+        //public ModuleCompletion ModuleCompletion { get; set; }
+        public ICollection<ModuleQuestion> ModuleQuestions { get; set; }
 
         //optional
-        public Bootcamp Bootcamp { get; set; }
+        public ICollection<Bootcamp> Bootcamps { get; set; }
 
     }
-}
 }

@@ -12,26 +12,26 @@ namespace CodeCrunch.API.Models
     {
         // Primary key
         public string BootcampId { get; set; }
-        
-        public virtual User User { get; set; }
+
+        //Other fields related to model
         // Email, phone, and ConfirmEmail stored in user table.
         public string BootcampName { get; set; }
         public string BootCampSite { get; set; }
         public string BootcampCity { get; set; }
         public string BootcampState { get; set; }
+        // flesh out eventually
         public string Perks { get; set; }
 
         // Add tags
 
         // not sure about data type
-        public string Interests { get; set; }
+        public object Interests { get; set; }
 
         public string LinkedIn { get; set; }
         public string Blog { get; set; }
 
         // Relationships
         public ICollection<Track> Tracks { get; set; }
-        //not sure if this needs to be here
-        public ICollection<Student> Students { get; set; }
+        public virtual User User { get; set; }
     }
 }
