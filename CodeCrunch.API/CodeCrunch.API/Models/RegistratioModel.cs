@@ -6,12 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CodeCrunch.API.Models
 {
-    public class RegistrationModel
+    public class BootcampRegistrationModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Bootcamp name")]
         [StringLength(50, ErrorMessage = "{0} must not exceed {1} characters")]
-        public string EmailAddress { get; set; }
+        public string BootcampName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The (0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -23,5 +23,13 @@ namespace CodeCrunch.API.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(50, ErrorMessage = "{0} must not exceed {1} characters")]
+        public string BootcampState { get; set; }
+
+        [Required]
+        [StringLength(50, ErrorMessage = "{0} must not exceed {1} characters")]
+        public string EmailAddress { get; set; }
     }
 }
