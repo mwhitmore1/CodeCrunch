@@ -11,5 +11,7 @@ namespace CodeCrunch.API.Models
     {
         public virtual Student Student { get; set; }
         public virtual Bootcamp Bootcamp { get; set; }
+
+        public virtual ProfilePicture ProfilePicture { get; set; }
     }
 }

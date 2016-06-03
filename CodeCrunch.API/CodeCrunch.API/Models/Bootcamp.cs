@@ -8,15 +8,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodeCrunch.API.Models
 {
-    public class Bootcamp : IdentityUser
+    public class Bootcamp
     {
         // Primary key
-        public string BootcampId { get; set; }
+        public int BootcampId { get; set; }
+
+        //ForeignKey
 
         //Other fields related to model
         // Email, phone, and ConfirmEmail stored in user table.
         public string BootcampName { get; set; }
-        public string BootCampSite { get; set; }
+        public string BootcampSite { get; set; }
         public string BootcampCity { get; set; }
         public string BootcampState { get; set; }
         // flesh out eventually
@@ -30,8 +32,8 @@ namespace CodeCrunch.API.Models
         public string LinkedIn { get; set; }
         public string Blog { get; set; }
 
-        // Relationships
         public virtual ICollection<Track> Tracks { get; set; }
-        public virtual virtual User User { get; set; }
+        public virtual ICollection<Module> Modules { get; set; }
+        public virtual User User { get; set; }
     }
 }

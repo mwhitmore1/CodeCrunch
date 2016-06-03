@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,30 +125,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\UserContext.cs" />
+    <Compile Include="Migrations\201606022338564_InitialCreate.cs" />
+    <Compile Include="Migrations\201606022338564_InitialCreate.Designer.cs">
+      <DependentUpon>201606022338564_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ModuleAnswer.cs" />
     <Compile Include="Models\ModuleQuestion.cs" />
-    <Compile Include="Models\TrackModule.cs" />
-    <Compile Include="Infrastructure\UserContext.cs" />
-    <Compile Include="Migrations\201606020151523_inital.cs" />
-    <Compile Include="Migrations\201606020151523_inital.Designer.cs">
-      <DependentUpon>201606020151523_inital.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606020157352_initial2.cs" />
-    <Compile Include="Migrations\201606020157352_initial2.Designer.cs">
-      <DependentUpon>201606020157352_initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606020218048_initial3.cs" />
-    <Compile Include="Migrations\201606020218048_initial3.Designer.cs">
-      <DependentUpon>201606020218048_initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606021544347_initail4.cs" />
-    <Compile Include="Migrations\201606021544347_initail4.Designer.cs">
-      <DependentUpon>201606021544347_initail4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Bootcamp.cs" />
     <Compile Include="Models\Student.cs" />
@@ -157,20 +144,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606020151523_inital.resx">
-      <DependentUpon>201606020151523_inital.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606020157352_initial2.resx">
-      <DependentUpon>201606020157352_initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606020218048_initial3.resx">
-      <DependentUpon>201606020218048_initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606021544347_initail4.resx">
-      <DependentUpon>201606021544347_initail4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606022338564_InitialCreate.resx">
+      <DependentUpon>201606022338564_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -27,10 +27,8 @@ namespace CodeCrunch.API.Models
         public int SearchBootcamp { get; set; }
 
         // Relationships
+        public virtual Bootcamp Bootcamp { get; set; }
         public virtual ICollection<Module> Modules { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
-        public virtual ICollection<Bootcamp> Bootcamps { get; set; }
-
-        
+        public virtual ICollection<Student> EnrolledStudents { get; set; }        
     }
 }
