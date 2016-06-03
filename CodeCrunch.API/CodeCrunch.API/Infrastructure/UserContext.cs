@@ -32,8 +32,7 @@ namespace CodeCrunch.API.Infrastructure
                 .WithOptional(u => u.Bootcamp);
 
             modelBuilder.Entity<ProfilePicture>()
-                .HasRequired(pp => pp.User)
-                .WithRequiredDependent(u => u.ProfilePicture);
+                .HasRequired(pp => pp.User);
 
             modelBuilder.Entity<Bootcamp>()
                 .HasMany(b => b.Tracks)

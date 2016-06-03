@@ -21,6 +21,9 @@ namespace CodeCrunch.API.Models
         public string BootcampSite { get; set; }
         public string BootcampCity { get; set; }
         public string BootcampState { get; set; }
+        public string LinkedIn { get; set; }
+        public string Blog { get; set; }
+
         // flesh out eventually
         public string Perks { get; set; }
 
@@ -29,9 +32,7 @@ namespace CodeCrunch.API.Models
         // not sure about data type
         public object Interests { get; set; }
 
-        public string LinkedIn { get; set; }
-        public string Blog { get; set; }
-
+        
         public virtual ICollection<Track> Tracks { get; set; }
         public virtual ICollection<Module> Modules { get; set; }
         public virtual User User { get; set; }

@@ -12,6 +12,10 @@ namespace CodeCrunch.API.Models
         public virtual Student Student { get; set; }
         public virtual Bootcamp Bootcamp { get; set; }
 
+        // Foreign keys
+        public int? ProfilePictureId { get; set; }
+
+        // Relationships
         public virtual ProfilePicture ProfilePicture { get; set; }
     }
 }
