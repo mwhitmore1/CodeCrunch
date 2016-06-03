@@ -1,0 +1,24 @@
+#content{
+	height: 650px;
+}
+
+.trackContainer {
+	margin-bottom: 30px;
+}
+.col-sm-12{
+	border-bottom: 1px solid grey;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+
+}
+footer {
+position: fixed;
+bottom: 0;
+height: 30px; 
+align-content: center;
+}
+.footerbutton{
+	margin-left: 600px;
+	
+}
