@@ -1,10 +1,7 @@
 ﻿using CodeCrunch.API.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CodeCrunch.API.Infrastructure
 {
@@ -15,25 +12,75 @@ namespace CodeCrunch.API.Infrastructure
         {
 
         }
-
-        public IDbSet<Enrollment> Enrollments { get; set; }
         public IDbSet<Bootcamp> Bootcamps { get; set; }
+        public IDbSet<Chapter> Chapters { get; set; }
+        public IDbSet<Module> Modules { get; set; }
         public IDbSet<ProfilePicture> ProfilePictures { get; set; }
         public IDbSet<Student> Students { get; set; }
         public IDbSet<Track> Tracks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasRequired(u => u.Student)
-                .WithRequiredPrincipal(u => u.User);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<User>()
-                .HasRequired(u => u.Bootcamp)
-                .WithRequiredPrincipal(u => u.User);
+            modelBuilder.Entity<Student>()
+                .HasRequired(s => s.User)
+                .WithOptional(u => u.Student);
+
+            modelBuilder.Entity<Bootcamp>()
+                .HasRequired(b => b.User)
+                .WithOptional(u => u.Bootcamp);
+
+            modelBuilder.Entity<ProfilePicture>()
+                .HasRequired(pp => pp.User)
+                .WithRequiredDependent(u => u.ProfilePicture);
+
+            modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Tracks)
+                .WithRequired(t => t.Bootcamp)
+                .HasForeignKey(t => t.BootcampId);
+
+            modelBuilder.Entity<Bootcamp>()
+               .HasMany(b => b.Modules)
+               .WithOptional(m => m.Bootcamp)
+               .HasForeignKey(m => m.BootcampId);
+
+            modelBuilder.Entity<Module>()
+                .HasMany(m => m.Tracks)
+                .WithMany(t => t.Modules)
+                .Map(tm =>
+                {
+                    tm.MapLeftKey("ModuleId");
+                    tm.MapRightKey("TrackId");
+                    tm.ToTable("TrackModule");
+                });
+
+            modelBuilder.Entity<Module>()
+                .HasMany(m => m.Chapters)
+                .WithRequired(c => c.Module)
+                .HasForeignKey(c => c.ModuleId);
+
+            modelBuilder.Entity<Student>()
+               .HasMany(s => s.EnrolledTracks)
+               .WithMany(t => t.EnrolledStudents)
+               .Map(ts =>
+               {
+                   ts.MapLeftKey("StudentId");
+                   ts.MapRightKey("TrackId");
+                   ts.ToTable("Enrollment");
+               });
+
+            modelBuilder.Entity<Student>()
+               .HasMany(s => s.CompletedChapters)
+               .WithMany(c => c.CompletedChapterStudents)
+               .Map(cs =>
+               {
+                   cs.MapLeftKey("StudentId");
+                   cs.MapRightKey("CompletedChapterId");
+                   cs.ToTable("CompletedChapterStudent");
+               });
 
             base.OnModelCreating(modelBuilder);
-               
         }
     }
 }

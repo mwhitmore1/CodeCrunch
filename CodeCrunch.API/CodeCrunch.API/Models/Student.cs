@@ -11,7 +11,7 @@ namespace CodeCrunch.API.Models
     public class Student
     { 
         // Primary key
-        public string StudentId { get; set; }
+        public int StudentId { get; set; }
 
         //Other fields related to model
         // Email, phone, and ConfirmEmail stored in User table.
@@ -25,7 +25,8 @@ namespace CodeCrunch.API.Models
         public string Blog { get; set; }
 
         // Relationships
-        public virtual ICollection<Track> Tracks { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<Track> EnrolledTracks { get; set; }
+        public virtual ICollection<Chapter> CompletedChapters { get; set; }
     }
 }

@@ -7,18 +7,19 @@ namespace CodeCrunch.API.Models
 {
     public class Chapter
     {
-            //Primary Key
-            public int ChapterId { get; set; }
+        //Primary Key
+        public int ChapterId { get; set; }
 
-            //Foreign Key
-            public int ModuleId { get; set; }
+        //Foreign Key
+        public int ModuleId { get; set; }
 
-            //Other fields related to model
-            public bool CurrentChapter { get; set; }
-            public string ChapterName { get; set; }
-            public string ChapterDescription { get; set; }
+        //Other fields related to model
+        public bool CurrentChapter { get; set; }
+        public string ChapterName { get; set; }
+        public string ChapterDescription { get; set; }
 
-            //Relationships
-            public virtual Module Module { get; set; }
+        //Relationships
+        public virtual Module Module { get; set; }
+        public virtual ICollection<Student> CompletedChapterStudents { get; set; }
     }
 }

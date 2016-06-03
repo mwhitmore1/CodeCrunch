@@ -11,20 +11,18 @@ namespace CodeCrunch.API.Models
         public int ModuleId { get; set; }
 
         // Foriegn keys
-        public int TrackId { get; set; }       
+        public int TrackId { get; set; } 
+        public int? BootcampId { get; set; }      
 
         // May need to be changed
         public string ModuleName { get; set; }
         public string ModuleDescription { get; set; }
 
         // Relationships
-        public virtual ICollection<Chapter> Chapters { get; set; }
-        public virtual ICollection<TrackModule> TrackModules { get; set; }
-        //public virtual ModuleCompletion ModuleCompletion { get; set; }
-        public virtual ICollection<ModuleQuestion> ModuleQuestions { get; set; }
-
         //optional
-        public ICollection<Bootcamp> Bootcamps { get; set; }
+        public virtual Bootcamp Bootcamp { get; set; }
+        public virtual ICollection<Chapter> Chapters { get; set; }
+        public virtual ICollection<Track> Tracks { get; set; }
 
     }
 }
