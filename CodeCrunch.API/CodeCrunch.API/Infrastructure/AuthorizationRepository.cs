@@ -15,10 +15,13 @@ namespace CodeCrunch.API.Infrastructure
 
         private UserManager<User> _userManager;
 
+        private ApplicationRoleManager _AppRoleManager;
+
         public AuthorizationRepository()
         {
             _ctx = new UserContext();
             _userManager = new UserManager<User>(new UserStore<User>(_ctx));
+            _AppRoleManager = new ApplicationRoleManager(new RoleStore<IdentityRole>());
         }
 
         public async Task<IdentityResult> RegisterUser(RegistrationModel userModel)
@@ -41,6 +44,39 @@ namespace CodeCrunch.API.Infrastructure
             return user;
         }
 
+        public async Task<User> FindUserByIdAsync(string id)
+        {
+            User user = await _userManager.FindByIdAsync(id);
+
+            return user;
+        }
+
+        public async Task<IdentityResult> CreateNewRoleAsync(IdentityRole role)
+        {
+            return await _AppRoleManager.CreateAsync(role);
+        }
+
+        public async Task<IdentityResult> DeleteRoleAsync(IdentityRole role)
+        {
+            return await _AppRoleManager.DeleteAsync(role);
+        }
+
+        public async Task<IdentityResult> RemoveUserFromRoleAsync(string user, string role)
+        {
+            var result = await _userManager.RemoveFromRoleAsync(user, role);
+            return result;
+        }
+
+        public bool UserIsInRole(string user, string role)
+        {
+            return _userManager.IsInRole<User, string>(user, role);
+        }
+
+        public async Task<IdentityResult> AddUserToRoleAsyc(string user, string role)
+        {
+            return await _userManager.AddToRoleAsync(user, role);
+        }
+
         public async Task<string> GetUserIdAsync()
         {
             string username = HttpContext.Current.User.Identity.Name;
@@ -57,10 +93,24 @@ namespace CodeCrunch.API.Infrastructure
             return user;
         }
 
+        public async Task<IdentityRole> FindRoleByIdAsync(string id)
+        {
+            return await _AppRoleManager.FindByIdAsync(id);
+        }
+
+        public IQueryable<IdentityRole> GetRoles()
+        {
+            return _AppRoleManager.Roles;
+        }
+
         public void Dispose()
         {
             _ctx.Dispose();
             _userManager.Dispose();
         }
+    }
+
+    internal class Role
+    {
     }
 }

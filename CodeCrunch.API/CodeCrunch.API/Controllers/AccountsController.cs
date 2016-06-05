@@ -9,13 +9,11 @@ using Microsoft.AspNet.Identity;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
 
-namespace CodeCrunch.API.Controller
+namespace CodeCrunch.API.Controllers
 {
     [RoutePrefix("Account")]
-    public class AccountsController : ApiController
+    public class AccountsController : BaseApiController
     {
-        private AuthorizationRepository _repo = new AuthorizationRepository();
-
         //POST Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -36,44 +34,6 @@ namespace CodeCrunch.API.Controller
             }
 
             return Ok();
-        }
-
-        protected IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
-
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string i in result.Errors)
-                    {
-                        ModelState.AddModelError("", i);
-                    }
-                }
-
-                if (ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
-
-            base.Dispose(disposing);
         }
     }
 }
