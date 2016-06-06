@@ -41,6 +41,21 @@
 
 </head>
 
+<!--Begin carousel
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>CODE CRUNCH</h1>
+                <hr>
+                <p>Hooking up eager coders with bootcamps since 2016</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Choose a Learning Track to get started</a>
+                <br>
+                <br>
+                <button class="btn btn-default btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+            </div>
+        </div>
+    </header>
 
 <!--Login Section-->
 
@@ -185,161 +200,50 @@
 
 <!--End carousel-->
 
-<div id="wrapper">
-    <div class="navbar-header">
-        <nav>
-            <ul class="list-unstyled main-menu">
+    <div id="wrapper">
 
-            <!--Include your navigation here-->
-                <li class="text-left">
-                    <a href="#" id="nav-close">
-                    CODE CRUNCH
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="tracks.html">
-                        <i class="fa fa-road">            
-                        </i> Tracks 
-                        <span class="icon">
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="modules.html">
-                        <i class="fa fa-fw fa-wrench">
-                        </i>
-                        Create Modules
-                        <span class="icon">        
-                        </span>
-                    </a>
-                </li>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
-                <li>
-                    <a href="students.html">
-                        <i class="fa fa-graduation-cap">
-                        Students
-                        </i>
-                        <span class="icon">
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
 
-         <div class="navbar navbar-fixed-top" style="background-color: black">      
+<nav>
+  <ul class="list-unstyled main-menu">
+
+    <!--Include your navigation here-->
+    <li class="text-right"><a href="#" id="nav-close">X</a></li>
+    <li><a href="#">Menu One <span class="icon"></span></a></li>
+    <li><a href="#">Menu Two <span class="icon"></span></a></li>
+    <li><a href="#">Menu Three <span class="icon"></span></a></li>
+    <li><a href="#">Dropdown</a>
+      <ul class="list-unstyled">
+          <li class="sub-nav"><a href="#">Sub Menu One <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Two <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Three <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Four <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Five <span class="icon"></span></a></li>
+      </ul>
+    </li>
+    <li><a href="#">Menu Four <span class="icon"></span></a></li>
+    <li><a href="#">Menu Five <span class="icon"></span></a></li>
+  </ul>
+</nav>
+
+<div class="navbar navbar-inverse navbar-fixed-top">      
 
     <!--Include your brand here-->
-            <div class="navbar-header pull-left">
-              <a id="nav-expander" class="nav-expander fixed">
-                MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
-              </a>
-            </div>
-
-      <!-- Top Menu Items Begin-->
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu message-dropdown">
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-footer">
-                        <a href="#">Read All New Messages</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu alert-dropdown">
-                    <li>
-                        <a href="#">Congrats! you have <span class="label label-default">42 Points!</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-primary">Elite Haxxor Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-success">Enter your name Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-info">Cake Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-warning">Ruby on Rails Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-danger">Solving Sean's Puzzle Badge</span></a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">View All</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#signup"
-                    data-toggle="modal" 
-                    data-target=".bs-modal-sm">
-                    <i class="fa fa-user">    
-                    </i> Login 
-                </a>
-            </li>
-        </ul>
-
-            <!-- Top Menu Items End-->
-    </div>       
+    <a class="navbar-brand" href="#">Off Canvas Menu</a>
+    <div class="navbar-header pull-right">
+      <a id="nav-expander" class="nav-expander fixed">
+        MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
+      </a>
+    </div>
 </div>
 
 
-<!--Drop down test end-->
-
-            
-            
-
-    </nav>
 </div>
+        </nav>
 
        
 

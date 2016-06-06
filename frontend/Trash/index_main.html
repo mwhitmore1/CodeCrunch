@@ -29,7 +29,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,6 +40,21 @@
 
 </head>
 
+<!--Begin carousel-->
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>CODE CRUNCH</h1>
+                <hr>
+                <p>Hooking up eager coders with bootcamps since 2016</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Choose a Learning Track to get started</a>
+                <br>
+                <br>
+                <button class="btn btn-default btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+            </div>
+        </div>
+    </header>
 
 <!--Login Section-->
 
@@ -185,161 +199,161 @@
 
 <!--End carousel-->
 
-<div id="wrapper">
-    <div class="navbar-header">
-        <nav>
-            <ul class="list-unstyled main-menu">
+    <div id="wrapper">
 
-            <!--Include your navigation here-->
-                <li class="text-left">
-                    <a href="#" id="nav-close">
-                    CODE CRUNCH
-                    </a>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index_main.html">Ώ Code Crunch</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
                 </li>
-            
-                <li>
-                    <a href="tracks.html">
-                        <i class="fa fa-road">            
-                        </i> Tracks 
-                        <span class="icon">
-                        </span>
-                    </a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Congrats! you have <span class="label label-default">42 Points!</span></a>
+                        </li>
+                        <li>
+                            <a href="#">You have earned <span class="label label-primary">Elite Haxxor Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">You have earned <span class="label label-success">Enter your name Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">You have earned <span class="label label-info">Cake Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">You have earned <span class="label label-warning">Ruby on Rails Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">You have earned <span class="label label-danger">Solving Sean's Puzzle Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="modules.html">
-                        <i class="fa fa-fw fa-wrench">
-                        </i>
-                        Create Modules
-                        <span class="icon">        
-                        </span>
-                    </a>
-                </li>
+                        <li class="dropdown">
+                        <a href="#signup"
+                        data-toggle="modal" 
+                        data-target=".bs-modal-sm">
+                        <i class="fa fa-user">    
+                        </i> Login 
 
-                <li>
-                    <a href="students.html">
-                        <i class="fa fa-graduation-cap">
-                        Students
-                        </i>
-                        <span class="icon">
-                        </span>
-                    </a>
+                    </ul>
                 </li>
             </ul>
-        </nav>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
-         <div class="navbar navbar-fixed-top" style="background-color: black">      
 
-    <!--Include your brand here-->
-            <div class="navbar-header pull-left">
-              <a id="nav-expander" class="nav-expander fixed">
-                MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
-              </a>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-road"></i> Tracks</a>
+                    </li>
+                    <li>
+                        <a href="charts.html"><i class="fa fa-fw fa-wrench"></i> Create Modules</a>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-graduation-cap"></i> Students</a>
+                    </li>
+                   
+<!-- Deactivate menue items
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
             </div>
+            <!-- /.navbar-collapse -->
+        
+<!-- Removed Main-->
 
-      <!-- Top Menu Items Begin-->
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu message-dropdown">
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-footer">
-                        <a href="#">Read All New Messages</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu alert-dropdown">
-                    <li>
-                        <a href="#">Congrats! you have <span class="label label-default">42 Points!</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-primary">Elite Haxxor Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-success">Enter your name Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-info">Cake Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-warning">Ruby on Rails Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">You have earned <span class="label label-danger">Solving Sean's Puzzle Badge</span></a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">View All</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#signup"
-                    data-toggle="modal" 
-                    data-target=".bs-modal-sm">
-                    <i class="fa fa-user">    
-                    </i> Login 
-                </a>
-            </li>
-        </ul>
-
-            <!-- Top Menu Items End-->
-    </div>       
-</div>
-
-
-<!--Drop down test end-->
-
-            
-            
-
-    </nav>
-</div>
+        </nav>
 
        
 
@@ -350,9 +364,9 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-   <!-- <script src="js/plugins/morris/raphael.min.js"></script>-->
+    <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
-   <!-- <script src="js/plugins/morris/morris-data.js"></script>-->
+    <script src="js/plugins/morris/morris-data.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
@@ -365,7 +379,6 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
-    <script src="js/menu.js"></script>
 
 </body>
 
