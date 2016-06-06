@@ -19,7 +19,7 @@ namespace CodeCrunch.API.Controller
         //POST Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegistrationModel userModel)
+        public async Task<IHttpActionResult> Register(BootcampRegistrationModel userModel)
         {
             if (!ModelState.IsValid)
             {

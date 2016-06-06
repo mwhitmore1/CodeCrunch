@@ -166,9 +166,13 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
-    <Compile Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.cs" />
-    <Compile Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.Designer.cs">
-      <DependentUpon>201606030215575_profilepictureFreignKeyONUser4.cs</DependentUpon>
+    <Compile Include="Migrations\201606052154469_InitialCreate.cs" />
+    <Compile Include="Migrations\201606052154469_InitialCreate.Designer.cs">
+      <DependentUpon>201606052154469_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606061545414_RemoveModuleIdFromTrack.cs" />
+    <Compile Include="Migrations\201606061545414_RemoveModuleIdFromTrack.Designer.cs">
+      <DependentUpon>201606061545414_RemoveModuleIdFromTrack.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
@@ -186,8 +190,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.resx">
-      <DependentUpon>201606030215575_profilepictureFreignKeyONUser4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606052154469_InitialCreate.resx">
+      <DependentUpon>201606052154469_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606061545414_RemoveModuleIdFromTrack.resx">
+      <DependentUpon>201606061545414_RemoveModuleIdFromTrack.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

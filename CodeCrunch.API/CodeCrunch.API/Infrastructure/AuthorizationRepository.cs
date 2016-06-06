@@ -21,7 +21,7 @@ namespace CodeCrunch.API.Infrastructure
             _userManager = new UserManager<User>(new UserStore<User>(_ctx));
         }
 
-        public async Task<IdentityResult> RegisterUser(RegistrationModel userModel)
+        public async Task<IdentityResult> RegisterUser(BootcampRegistrationModel userModel)
         {
             User user = new User
             {
