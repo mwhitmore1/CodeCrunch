@@ -11,7 +11,7 @@
 
     <title>TEAM CODECRUNCH</title>
 
-    <!-- Bootstrap Core CSS -->
+        <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -48,10 +48,7 @@
                 <h1>CODE CRUNCH</h1>
                 <hr>
                 <p>Hooking up eager coders with bootcamps since 2016</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Choose a Learning Track to get started</a>
-                <br>
-                <br>
-                <button class="btn btn-default btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
     </header>
@@ -139,14 +136,6 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- Location -->
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="state">Select State:</label>
-                                                        <div class="controls">
-                                                            <select class="input-medium bfh-states" data-country="US" data-state-"CA"></select>
-                                                        </div>
-                                                    </div>
-
 <!-- Password input-->
                                                     <div class="control-group">
                                                         <label class="control-label" for="password">Password:</label>
@@ -205,7 +194,29 @@
 
 <!--End Login-->
 
+
+
+
 <!--End carousel-->
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">We've got what you need!</h2>
+                    <hr class="light">
+                    <p class="text-faded">In a world of sketchy startup universities fronted by orange skinned con-men, we have the solution to get you to a better career path. Trust us! </p>
+                    <p class="text-faded">Lorem ipsum is for losers!</p>
+
+                    <a href="index_main.html" class="btn btn-default btn-xl">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
 
     <div id="wrapper">
 
@@ -309,26 +320,28 @@
                         data-target=".bs-modal-sm">
                         <i class="fa fa-user">    
                         </i> Login 
-
+                        </li>
                     </ul>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
 
+            <!-- Deactivate SideBar Maybe I will make it ng-show in mouseover. Meh
+
+
+
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.html"><i class="fa fa-road"></i> Tracks</a>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-wrench"></i> Create Modules</a>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-graduation-cap"></i> Students</a>
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
                     </li>
-                   
-<!-- Deactivate menue items
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
                     </li>
@@ -387,10 +400,6 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
-
-    <!-- bootstraphelpers -->
-    <!-- <script src="bower_components/bootstrap-formhelpers/bfh-state.jquery.json"></script> -->
-    <script src="bower_components/bootstrap-formhelpers/dist/js/bootstrap-formhelpers.min.js"></script>
 
 </body>
 

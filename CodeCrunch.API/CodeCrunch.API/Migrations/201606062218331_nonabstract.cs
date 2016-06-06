@@ -3,90 +3,10 @@ namespace CodeCrunch.API.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class nonabstract : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.Bootcamp",
-                c => new
-                    {
-                        BootcampId = c.Int(nullable: false, identity: true),
-                        BootcampName = c.String(),
-                        BootcampSite = c.String(),
-                        BootcampCity = c.String(),
-                        BootcampState = c.String(),
-                        LinkedIn = c.String(),
-                        Blog = c.String(),
-                        Perks = c.String(),
-                        User_Id = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => t.BootcampId)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.User_Id);
-            
-            CreateTable(
-                "dbo.Module",
-                c => new
-                    {
-                        ModuleId = c.Int(nullable: false, identity: true),
-                        TrackId = c.Int(nullable: false),
-                        BootcampId = c.Int(),
-                        ModuleName = c.String(),
-                        ModuleDescription = c.String(),
-                    })
-                .PrimaryKey(t => t.ModuleId)
-                .ForeignKey("dbo.Bootcamp", t => t.BootcampId)
-                .Index(t => t.BootcampId);
-            
-            CreateTable(
-                "dbo.Chapter",
-                c => new
-                    {
-                        ChapterId = c.Int(nullable: false, identity: true),
-                        ModuleId = c.Int(nullable: false),
-                        CurrentChapter = c.Boolean(nullable: false),
-                        ChapterName = c.String(),
-                        ChapterDescription = c.String(),
-                    })
-                .PrimaryKey(t => t.ChapterId)
-                .ForeignKey("dbo.Module", t => t.ModuleId, cascadeDelete: true)
-                .Index(t => t.ModuleId);
-            
-            CreateTable(
-                "dbo.Student",
-                c => new
-                    {
-                        StudentId = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Description = c.String(),
-                        Interests = c.String(),
-                        LinkedIn = c.String(),
-                        Blog = c.String(),
-                        User_Id = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => t.StudentId)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.User_Id);
-            
-            CreateTable(
-                "dbo.Track",
-                c => new
-                    {
-                        TrackId = c.Int(nullable: false, identity: true),
-                        TrackName = c.String(),
-                        Description = c.String(),
-                        StudentId = c.String(),
-                        ModuleId = c.Int(nullable: false),
-                        BootcampId = c.Int(nullable: false),
-                        CreatorName = c.String(),
-                        SearchBootcamp = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.TrackId)
-                .ForeignKey("dbo.Bootcamp", t => t.BootcampId, cascadeDelete: true)
-                .Index(t => t.BootcampId);
-            
             CreateTable(
                 "dbo.AspNetUsers",
                 c => new
@@ -104,6 +24,22 @@ namespace CodeCrunch.API.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        BootcampId = c.Int(),
+                        BootcampName = c.String(),
+                        BootcampSite = c.String(),
+                        BootcampCity = c.String(),
+                        BootcampState = c.String(),
+                        LinkedIn = c.String(),
+                        Blog = c.String(),
+                        Perks = c.String(),
+                        StudentId = c.Int(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Description = c.String(),
+                        Interests = c.String(),
+                        LinkedIn1 = c.String(),
+                        Blog1 = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
@@ -132,6 +68,50 @@ namespace CodeCrunch.API.Migrations
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Module",
+                c => new
+                    {
+                        ModuleId = c.Int(nullable: false, identity: true),
+                        TrackId = c.Int(nullable: false),
+                        BootcampId = c.String(maxLength: 128),
+                        ModuleName = c.String(),
+                        ModuleDescription = c.String(),
+                    })
+                .PrimaryKey(t => t.ModuleId)
+                .ForeignKey("dbo.AspNetUsers", t => t.BootcampId)
+                .Index(t => t.BootcampId);
+            
+            CreateTable(
+                "dbo.Chapter",
+                c => new
+                    {
+                        ChapterId = c.Int(nullable: false, identity: true),
+                        ModuleId = c.Int(nullable: false),
+                        CurrentChapter = c.Boolean(nullable: false),
+                        ChapterName = c.String(),
+                        ChapterDescription = c.String(),
+                    })
+                .PrimaryKey(t => t.ChapterId)
+                .ForeignKey("dbo.Module", t => t.ModuleId, cascadeDelete: true)
+                .Index(t => t.ModuleId);
+            
+            CreateTable(
+                "dbo.Track",
+                c => new
+                    {
+                        TrackId = c.Int(nullable: false, identity: true),
+                        TrackName = c.String(),
+                        Description = c.String(),
+                        StudentId = c.String(),
+                        BootcampId = c.String(nullable: false, maxLength: 128),
+                        CreatorName = c.String(),
+                        SearchBootcamp = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.TrackId)
+                .ForeignKey("dbo.AspNetUsers", t => t.BootcampId, cascadeDelete: true)
+                .Index(t => t.BootcampId);
             
             CreateTable(
                 "dbo.ProfilePicture",
@@ -173,25 +153,25 @@ namespace CodeCrunch.API.Migrations
                 "dbo.CompletedChapterStudent",
                 c => new
                     {
-                        StudentId = c.Int(nullable: false),
+                        StudentId = c.String(nullable: false, maxLength: 128),
                         CompletedChapterId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.StudentId, t.CompletedChapterId })
-                .ForeignKey("dbo.Student", t => t.StudentId, cascadeDelete: true)
-                .ForeignKey("dbo.Chapter", t => t.CompletedChapterId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.StudentId)
+                .ForeignKey("dbo.Chapter", t => t.CompletedChapterId)
                 .Index(t => t.StudentId)
                 .Index(t => t.CompletedChapterId);
             
             CreateTable(
-                "dbo.Enrollment",
+                "dbo.StudentTrack",
                 c => new
                     {
-                        StudentId = c.Int(nullable: false),
+                        StudentId = c.String(nullable: false, maxLength: 128),
                         TrackId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.StudentId, t.TrackId })
-                .ForeignKey("dbo.Student", t => t.StudentId, cascadeDelete: true)
-                .ForeignKey("dbo.Track", t => t.TrackId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.StudentId)
+                .ForeignKey("dbo.Track", t => t.TrackId)
                 .Index(t => t.StudentId)
                 .Index(t => t.TrackId);
             
@@ -203,8 +183,8 @@ namespace CodeCrunch.API.Migrations
                         TrackId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ModuleId, t.TrackId })
-                .ForeignKey("dbo.Module", t => t.ModuleId, cascadeDelete: true)
-                .ForeignKey("dbo.Track", t => t.TrackId, cascadeDelete: true)
+                .ForeignKey("dbo.Module", t => t.ModuleId)
+                .ForeignKey("dbo.Track", t => t.TrackId)
                 .Index(t => t.ModuleId)
                 .Index(t => t.TrackId);
             
@@ -213,53 +193,47 @@ namespace CodeCrunch.API.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Bootcamp", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Track", "BootcampId", "dbo.Bootcamp");
-            DropForeignKey("dbo.Module", "BootcampId", "dbo.Bootcamp");
+            DropForeignKey("dbo.Track", "BootcampId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Module", "BootcampId", "dbo.AspNetUsers");
             DropForeignKey("dbo.TrackModule", "TrackId", "dbo.Track");
             DropForeignKey("dbo.TrackModule", "ModuleId", "dbo.Module");
             DropForeignKey("dbo.Chapter", "ModuleId", "dbo.Module");
-            DropForeignKey("dbo.Student", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.ProfilePicture", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Enrollment", "TrackId", "dbo.Track");
-            DropForeignKey("dbo.Enrollment", "StudentId", "dbo.Student");
+            DropForeignKey("dbo.StudentTrack", "TrackId", "dbo.Track");
+            DropForeignKey("dbo.StudentTrack", "StudentId", "dbo.AspNetUsers");
             DropForeignKey("dbo.CompletedChapterStudent", "CompletedChapterId", "dbo.Chapter");
-            DropForeignKey("dbo.CompletedChapterStudent", "StudentId", "dbo.Student");
+            DropForeignKey("dbo.CompletedChapterStudent", "StudentId", "dbo.AspNetUsers");
             DropIndex("dbo.TrackModule", new[] { "TrackId" });
             DropIndex("dbo.TrackModule", new[] { "ModuleId" });
-            DropIndex("dbo.Enrollment", new[] { "TrackId" });
-            DropIndex("dbo.Enrollment", new[] { "StudentId" });
+            DropIndex("dbo.StudentTrack", new[] { "TrackId" });
+            DropIndex("dbo.StudentTrack", new[] { "StudentId" });
             DropIndex("dbo.CompletedChapterStudent", new[] { "CompletedChapterId" });
             DropIndex("dbo.CompletedChapterStudent", new[] { "StudentId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.ProfilePicture", new[] { "User_Id" });
+            DropIndex("dbo.Track", new[] { "BootcampId" });
+            DropIndex("dbo.Chapter", new[] { "ModuleId" });
+            DropIndex("dbo.Module", new[] { "BootcampId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Track", new[] { "BootcampId" });
-            DropIndex("dbo.Student", new[] { "User_Id" });
-            DropIndex("dbo.Chapter", new[] { "ModuleId" });
-            DropIndex("dbo.Module", new[] { "BootcampId" });
-            DropIndex("dbo.Bootcamp", new[] { "User_Id" });
             DropTable("dbo.TrackModule");
-            DropTable("dbo.Enrollment");
+            DropTable("dbo.StudentTrack");
             DropTable("dbo.CompletedChapterStudent");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.ProfilePicture");
+            DropTable("dbo.Track");
+            DropTable("dbo.Chapter");
+            DropTable("dbo.Module");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Track");
-            DropTable("dbo.Student");
-            DropTable("dbo.Chapter");
-            DropTable("dbo.Module");
-            DropTable("dbo.Bootcamp");
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Web;
 
 namespace CodeCrunch.API.Models
 {
-    public class Student
+    public class Student : User
     { 
         // Primary key
         public int StudentId { get; set; }
@@ -25,7 +25,7 @@ namespace CodeCrunch.API.Models
         public string Blog { get; set; }
 
         // Relationships
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
         public virtual ICollection<Track> EnrolledTracks { get; set; }
         public virtual ICollection<Chapter> CompletedChapters { get; set; }
     }

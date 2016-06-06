@@ -24,13 +24,13 @@ namespace CodeCrunch.API.Infrastructure
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<Student>()
-                .HasRequired(s => s.User)
-                .WithOptional(u => u.Student);
+            //modelBuilder.Entity<Student>()
+              //  .HasRequired(s => s.User)
+                //.WithOptional(u => u.Student);
 
-            modelBuilder.Entity<Bootcamp>()
-                .HasRequired(b => b.User)
-                .WithOptional(u => u.Bootcamp);
+            //modelBuilder.Entity<Bootcamp>()
+              //  .HasRequired(b => b.User)
+                //.WithOptional(u => u.Bootcamp);
 
             modelBuilder.Entity<ProfilePicture>()
                 .HasRequired(pp => pp.User);
@@ -61,14 +61,18 @@ namespace CodeCrunch.API.Infrastructure
                 .HasForeignKey(c => c.ModuleId);
 
             modelBuilder.Entity<Student>()
+               
                .HasMany(s => s.EnrolledTracks)
                .WithMany(t => t.EnrolledStudents)
+               
                .Map(ts =>
                {
                    ts.MapLeftKey("StudentId");
                    ts.MapRightKey("TrackId");
-                   ts.ToTable("Enrollment");
+                   ts.ToTable("StudentTrack");
                });
+
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Entity<Student>()
                .HasMany(s => s.CompletedChapters)

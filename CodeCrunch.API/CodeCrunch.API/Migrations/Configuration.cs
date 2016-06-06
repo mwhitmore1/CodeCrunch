@@ -18,6 +18,7 @@ namespace CodeCrunch.API.Migrations
 
         protected override void Seed(CodeCrunch.API.Infrastructure.UserContext context)
         {
+            /*
             UserManager<User> manager = new UserManager<User>(new UserStore<User>(new UserContext()));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new UserContext()));
             var user = new User()
@@ -38,7 +39,7 @@ namespace CodeCrunch.API.Migrations
             User admin = manager.FindByName("SuperUser");
 
             manager.AddToRole(admin.Id, "Admin");
-
+            */
         //  This method will be called after migrating to the latest version.
 
         //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

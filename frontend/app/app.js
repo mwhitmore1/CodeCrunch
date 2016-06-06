@@ -14,5 +14,5 @@
 			.state('main', {url: '/main', templateUrl: '/index_main.html', controller: 'MainController as main'});
 			$httpProvider.interceptors.push('authInterceptor');
 		 })	
-		 .value('apiUrl', 'http://localhost:65315/');
+		 .value('apiUrl', 'http://localhost:57079/');
 })();

@@ -9,8 +9,8 @@ namespace CodeCrunch.API.Models
 {
     public class User : IdentityUser
     {
-        public virtual Student Student { get; set; }
-        public virtual Bootcamp Bootcamp { get; set; }
+        //public virtual Student Student { get; set; }
+        //public virtual Bootcamp Bootcamp { get; set; }
 
         // Foreign keys
         public int? ProfilePictureId { get; set; }

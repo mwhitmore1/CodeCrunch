@@ -26,11 +26,8 @@ namespace CodeCrunch.API.Infrastructure
 
         public async Task<IdentityResult> RegisterUser(BootcampRegistrationModel userModel)
         {
-            User user = new User
-            {
-                UserName = userModel.EmailAddress,
-                Email = userModel.EmailAddress
-            };
+            UserCreator creator = new UserCreator();
+            User user = creator.CreateUser(userModel);
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
 

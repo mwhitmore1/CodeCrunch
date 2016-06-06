@@ -12,7 +12,7 @@ namespace CodeCrunch.API.Models
 
         // Foriegn keys
         public int TrackId { get; set; } 
-        public int? BootcampId { get; set; }      
+        public string BootcampId { get; set; }      
 
         // May need to be changed
         public string ModuleName { get; set; }

@@ -7,13 +7,13 @@ namespace CodeCrunch.API.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RemoveModuleIdFromTrack : IMigrationMetadata
+    public sealed partial class again : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveModuleIdFromTrack));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(again));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606061545414_RemoveModuleIdFromTrack"; }
+            get { return "201606062223150_again"; }
         }
         
         string IMigrationMetadata.Source

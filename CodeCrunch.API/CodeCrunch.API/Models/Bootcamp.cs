@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodeCrunch.API.Models
 {
-    public class Bootcamp
+    public class Bootcamp : User
     {
         // Primary key
         public int BootcampId { get; set; }
@@ -35,6 +35,6 @@ namespace CodeCrunch.API.Models
         
         public virtual ICollection<Track> Tracks { get; set; }
         public virtual ICollection<Module> Modules { get; set; }
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
     }
 }
