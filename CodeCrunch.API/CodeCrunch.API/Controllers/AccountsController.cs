@@ -8,13 +8,56 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace CodeCrunch.API.Controller
+namespace CodeCrunch.API.Controllers
 {
     [RoutePrefix("Account")]
-    public class AccountsController : ApiController
+    public class AccountsController : BaseApiController
     {
         private AuthorizationRepository _repo = new AuthorizationRepository();
+        
+        [Authorize(Roles = "Admin")]
+        [Route("user/{id.guid}/roles")]
+        [HttpPut]
+        public async Task<IHttpActionResult> AssignRolesToUser([FromUri] string id, [FromBody] string[] rolesToAssign)
+        {
+            User appUser = await _repo.FindUserByIdAsync(id);
+
+            if (appUser == null)
+            {
+                return NotFound();
+            }
+
+            IList<string> currentRoles = await _repo.GetUsersRolesById(appUser.Id);
+
+            // rolesNotExist will only have a value if the role to be added does not exist. 
+            var rolesNotExist = rolesToAssign.Except(_repo.GetRoles().Select(x => x.Name)).ToArray();
+
+            if (rolesNotExist.Count() > 0)
+            {
+                ModelState.AddModelError("", string.Format("Roles '{0}' does not exist in the system", string.Join(",", rolesNotExist)));
+                return BadRequest(ModelState);
+            }
+
+            IdentityResult removeResult = await _repo.RemoveUserFromRoleAsync(appUser.Id, currentRoles.ToArray());
+
+            if (!removeResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Failed to remove user roles");
+                return BadRequest(ModelState);
+            }
+
+            IdentityResult addResult = await _repo.AddUserToRolesAsyc(appUser.Id, rolesToAssign);
+
+            if (!addResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Failed to add user roles");
+                return BadRequest(ModelState);
+            }
+
+            return Ok();
+        }
 
         //POST Account/Register
         [AllowAnonymous]
@@ -36,44 +79,6 @@ namespace CodeCrunch.API.Controller
             }
 
             return Ok();
-        }
-
-        protected IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
-
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string i in result.Errors)
-                    {
-                        ModelState.AddModelError("", i);
-                    }
-                }
-
-                if (ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
-
-            base.Dispose(disposing);
         }
     }
 }

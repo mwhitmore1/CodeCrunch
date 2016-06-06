@@ -7,6 +7,7 @@ using System.Net.Http.Formatting;
 using Microsoft.Owin.Security.OAuth;
 using CodeCrunch.API.Provider;
 using Microsoft.Owin;
+using CodeCrunch.API.Infrastructure;
 
 [assembly: OwinStartup(typeof(CodeCrunch.API.Startup))]
 namespace CodeCrunch.API
@@ -17,6 +18,7 @@ namespace CodeCrunch.API
             {
                 HttpConfiguration httpConfig = new HttpConfiguration();
                 ConfigureOAuth(app);
+                app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
                 ConfigureWebApi(httpConfig);
                 app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
                 app.UseWebApi(httpConfig);

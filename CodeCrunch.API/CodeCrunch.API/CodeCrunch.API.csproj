@@ -164,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Migrations\201606052154469_InitialCreate.cs" />
@@ -176,12 +179,15 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\CreateRoleBIndingModel.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ModuleAnswer.cs" />
     <Compile Include="Models\ModuleQuestion.cs" />
     <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Bootcamp.cs" />
-    <Compile Include="Models\RegistratioModel.cs" />
+    <Compile Include="Models\BootcampRegistrationModel.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\RoleModelFactory.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Track.cs" />
     <Compile Include="Models\User.cs" />
