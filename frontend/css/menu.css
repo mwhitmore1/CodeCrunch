@@ -31,6 +31,11 @@ a.nav-expander.fixed {
   position: fixed;
 }
 
+a.nav-expander.absolute {
+  position: absolute;
+}
+
+
 .nav-expanded a.nav-expander.fixed {
     left: 20em;
 }
