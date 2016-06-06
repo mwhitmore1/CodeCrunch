@@ -56,6 +56,12 @@ namespace CodeCrunch.API.Infrastructure
             return await _AppRoleManager.CreateAsync(role);
         }
 
+        public async Task<IList<string>> GetUsersRolesById(string id)
+        {
+            IList<string> result = await _userManager.GetRolesAsync(id);
+            return result; 
+        }
+
         public async Task<IdentityResult> DeleteRoleAsync(IdentityRole role)
         {
             return await _AppRoleManager.DeleteAsync(role);
@@ -67,6 +73,12 @@ namespace CodeCrunch.API.Infrastructure
             return result;
         }
 
+        public async Task<IdentityResult> RemoveUserFromRoleAsync(string user, string[] roles)
+        {
+            var result = await _userManager.RemoveFromRolesAsync(user, roles);
+            return result;
+        }
+
         public bool UserIsInRole(string user, string role)
         {
             return _userManager.IsInRole<User, string>(user, role);
@@ -75,6 +87,11 @@ namespace CodeCrunch.API.Infrastructure
         public async Task<IdentityResult> AddUserToRoleAsyc(string user, string role)
         {
             return await _userManager.AddToRoleAsync(user, role);
+        }
+
+        public async Task<IdentityResult> AddUserToRolesAsyc(string user, string[] role)
+        {
+            return await _userManager.AddToRolesAsync(user, role);
         }
 
         public async Task<string> GetUserIdAsync()
