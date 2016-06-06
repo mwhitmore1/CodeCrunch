@@ -164,11 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\TracksController.cs" />
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
-    <Compile Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.cs" />
-    <Compile Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.Designer.cs">
-      <DependentUpon>201606030215575_profilepictureFreignKeyONUser4.cs</DependentUpon>
+    <Compile Include="Migrations\201606051925326_InitialCreate.cs" />
+    <Compile Include="Migrations\201606051925326_InitialCreate.Designer.cs">
+      <DependentUpon>201606051925326_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
@@ -186,8 +187,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606030215575_profilepictureFreignKeyONUser4.resx">
-      <DependentUpon>201606030215575_profilepictureFreignKeyONUser4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606051925326_InitialCreate.resx">
+      <DependentUpon>201606051925326_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

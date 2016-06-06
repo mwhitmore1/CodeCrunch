@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CodeCrunch.API.Models
 {
-    public class BootcampRegistrationModel
+    public class RegistrationModel
     {
         [Required]
         [Display(Name = "Bootcamp name")]

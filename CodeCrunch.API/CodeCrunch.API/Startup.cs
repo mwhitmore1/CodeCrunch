@@ -7,6 +7,7 @@ using System.Net.Http.Formatting;
 using Microsoft.Owin.Security.OAuth;
 using CodeCrunch.API.Provider;
 using Microsoft.Owin;
+using Newtonsoft.Json;
 
 [assembly: OwinStartup(typeof(CodeCrunch.API.Startup))]
 namespace CodeCrunch.API
@@ -38,6 +39,7 @@ namespace CodeCrunch.API
 
                 app.UseOAuthAuthorizationServer(OAuthServerOptions);
             }
+   
 
             private void ConfigureWebApi(HttpConfiguration config)
             {
@@ -49,8 +51,23 @@ namespace CodeCrunch.API
                     defaults: new { id = RouteParameter.Optional }
                     );
 
-                var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
-                jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            }
+           
+
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
+
+            ///code to setup your camel case conversion
+            var formatters = config.Formatters;
+            var jsonFormatter = formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        }
         }
     }
