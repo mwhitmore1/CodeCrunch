@@ -1,5 +1,5 @@
 {
-  "name": "07-VSTDA",
+  "name": "codecrunch",
   "main": "index.js",
   "homepage": "https://github.com/mwhitmore1/07-VSTDA",
   "authors": [
@@ -30,10 +30,12 @@
     "create": "*",
     "wow": "^1.1.2",
     "glyphicons-halflings": "*",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "bootstrap-formhelpers": "^2.3.0"
   },
   "resolutions": {
     "jquery": "2.2.4",
-    "font-awesome": "~4.2.0"
+    "font-awesome": "~4.2.0",
+    "bootstrap": "^3.3.6"
   }
 }
