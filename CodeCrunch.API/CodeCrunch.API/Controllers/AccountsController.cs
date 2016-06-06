@@ -15,6 +15,8 @@ namespace CodeCrunch.API.Controllers
     [RoutePrefix("Account")]
     public class AccountsController : BaseApiController
     {
+        private AuthorizationRepository _repo = new AuthorizationRepository();
+        
         [Authorize(Roles = "Admin")]
         [Route("user/{id.guid}/roles")]
         [HttpPut]
@@ -60,7 +62,7 @@ namespace CodeCrunch.API.Controllers
         //POST Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegistrationModel userModel)
+        public async Task<IHttpActionResult> Register(BootcampRegistrationModel userModel)
         {
             if (!ModelState.IsValid)
             {

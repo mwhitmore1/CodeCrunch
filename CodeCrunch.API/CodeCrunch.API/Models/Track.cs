@@ -17,7 +17,6 @@ namespace CodeCrunch.API.Models
 
         // Foriegn keys
         public string StudentId { get; set; }
-        public int ModuleId { get; set; }
         public int BootcampId { get; set; }
 
         // May need to be changed

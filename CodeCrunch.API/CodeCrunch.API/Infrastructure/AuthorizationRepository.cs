@@ -24,7 +24,7 @@ namespace CodeCrunch.API.Infrastructure
             _AppRoleManager = new ApplicationRoleManager(new RoleStore<IdentityRole>());
         }
 
-        public async Task<IdentityResult> RegisterUser(RegistrationModel userModel)
+        public async Task<IdentityResult> RegisterUser(BootcampRegistrationModel userModel)
         {
             User user = new User
             {
