@@ -4,6 +4,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+
 (function($) {
     "use strict"; // Start of use strict
 
@@ -46,3 +48,6 @@
     new WOW().init();
 
 })(jQuery); // End of use strict
+
+
+

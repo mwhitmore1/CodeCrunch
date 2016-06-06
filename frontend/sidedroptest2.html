@@ -29,6 +29,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -206,180 +207,42 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-  <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:150%; color:lightgrey; padding:20px">
-    Ώ Code Crunch 
-  <b class="caret">
-  </b></a>
-  <ul class="dropdown-menu" id="menu1" style="background-color:lightgrey;">
-    <li>
- 
 
+<nav>
+  <ul class="list-unstyled main-menu">
 
-            <br>
-            <li>
-                <a href="index.html"><i class="fa fa-road"></i> Tracks</a>
-            </li>
-            <br>
-            <br>
-            <li>
-                <a href="charts.html"><i class="fa fa-fw fa-wrench"></i> Create Modules</a>
-            </li>
-            <br>
-            <br>
-            <li>
-            <a href="tables.html"><i class="fa fa-graduation-cap"></i> Students</a>
-            </li>
-            <br>
-            <br>
-            <br>
-        </ul>
+    <!--Include your navigation here-->
+    <li class="text-right"><a href="#" id="nav-close">X</a></li>
+    <li><a href="#">Menu One <span class="icon"></span></a></li>
+    <li><a href="#">Menu Two <span class="icon"></span></a></li>
+    <li><a href="#">Menu Three <span class="icon"></span></a></li>
+    <li><a href="#">Dropdown</a>
+      <ul class="list-unstyled">
+          <li class="sub-nav"><a href="#">Sub Menu One <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Two <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Three <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Four <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Five <span class="icon"></span></a></li>
+      </ul>
     </li>
-
+    <li><a href="#">Menu Four <span class="icon"></span></a></li>
+    <li><a href="#">Menu Five <span class="icon"></span></a></li>
   </ul>
+</nav>
+
+<div class="navbar navbar-inverse navbar-fixed-top">      
+
+    <!--Include your brand here-->
+    <a class="navbar-brand" href="#">Off Canvas Menu</a>
+    <div class="navbar-header pull-right">
+      <a id="nav-expander" class="nav-expander fixed">
+        MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
+      </a>
+    </div>
+</div>
 
 
-
-
-<!--Drop down test end-->
-
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Congrats! you have <span class="label label-default">42 Points!</span></a>
-                        </li>
-                        <li>
-                            <a href="#">You have earned <span class="label label-primary">Elite Haxxor Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">You have earned <span class="label label-success">Enter your name Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">You have earned <span class="label label-info">Cake Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">You have earned <span class="label label-warning">Ruby on Rails Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">You have earned <span class="label label-danger">Solving Sean's Puzzle Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                        <li class="dropdown">
-                        <a href="#signup"
-                        data-toggle="modal" 
-                        data-target=".bs-modal-sm">
-                        <i class="fa fa-user">    
-                        </i> Login 
-
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-
-
-<!--            <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-                <ul class="nav navbar-nav side-nav">
-
-                -->
-
-
-
-
-<!-- Deactivate menue items
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        
-<!-- Removed Main-->
-
+</div>
         </nav>
 
        
@@ -391,9 +254,9 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
+   <!-- <script src="js/plugins/morris/raphael.min.js"></script>-->
     <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
+   <!-- <script src="js/plugins/morris/morris-data.js"></script>-->
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
@@ -406,6 +269,7 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+    <script src="js/menu.js"></script>
 
 </body>
 

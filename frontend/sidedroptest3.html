@@ -29,6 +29,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,21 +41,6 @@
 
 </head>
 
-<!--Begin carousel
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>CODE CRUNCH</h1>
-                <hr>
-                <p>Hooking up eager coders with bootcamps since 2016</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Choose a Learning Track to get started</a>
-                <br>
-                <br>
-                <button class="btn btn-default btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
-            </div>
-        </div>
-    </header>
 
 <!--Login Section-->
 
@@ -206,44 +192,69 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-  <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:150%; color:lightgrey; padding:20px">
-    Ώ Code Crunch 
-  <b class="caret">
-  </b></a>
-  <ul class="dropdown-menu" id="menu1" style="background-color:lightgrey;">
+
+<nav>
+  <ul class="list-unstyled main-menu">
+
+    <!--Include your navigation here-->
+    <li class="text-left">
+        <a href="#" id="nav-close">X
+        </a>
+    </li>
+    
     <li>
- 
-
-
-            <br>
-            <li>
-                <a href="index.html"><i class="fa fa-road"></i> Tracks</a>
-            </li>
-            <br>
-            <br>
-            <li>
-                <a href="charts.html"><i class="fa fa-fw fa-wrench"></i> Create Modules</a>
-            </li>
-            <br>
-            <br>
-            <li>
-            <a href="tables.html"><i class="fa fa-graduation-cap"></i> Students</a>
-            </li>
-            <br>
-            <br>
-            <br>
-        </ul>
+        <a href="index.html">
+            <i class="fa fa-road">            
+            </i> Tracks 
+            <span class="icon">
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="charts.html">
+            <i class="fa fa-fw fa-wrench">
+            </i>
+            Create Modules
+            <span class="icon">        
+            </span>
+        </a>
     </li>
 
+    <li>
+        <a href="tables.html">
+            <i class="fa fa-graduation-cap">
+            Students
+            </i>
+            <span class="icon">
+            </span>
+        </a>
+    </li>
+<!--Deactivate menu items
+    <li><a href="#">Dropdown</a>
+      <ul class="list-unstyled">
+          <li class="sub-nav"><a href="#">Sub Menu One <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Two <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Three <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Four <span class="icon"></span></a></li>
+          <li class="sub-nav"><a href="#">Sub Menu Five <span class="icon"></span></a></li>
+      </ul>
+    </li>
+    <li><a href="#">Menu Four <span class="icon"></span></a></li>
+    <li><a href="#">Menu Five <span class="icon"></span></a></li>
+ -->   
   </ul>
+</nav>
 
+<div class="navbar navbar-inverse navbar-fixed-top">      
 
+    <!--Include your brand here-->
+    <div class="navbar-header pull-left">
+      <a id="nav-expander" class="nav-expander fixed">
+        MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
+      </a>
+    </div>
 
-
-<!--Drop down test end-->
-
-            </div>
-            <!-- Top Menu Items -->
+      <!-- Top Menu Items Begin-->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
@@ -331,54 +342,21 @@
                         data-target=".bs-modal-sm">
                         <i class="fa fa-user">    
                         </i> Login 
-
                     </ul>
                 </li>
             </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            </a>
+            </li>
+            </ul>
+            <!-- Top Menu Items End-->
+    </div>
+</div>
 
 
-<!--            <div class="collapse navbar-collapse navbar-ex1-collapse">
+<!--Drop down test end-->
 
-                <ul class="nav navbar-nav side-nav">
-
-                -->
-
-
-
-
-<!-- Deactivate menue items
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        
-<!-- Removed Main-->
+            
+            
 
         </nav>
 
@@ -391,9 +369,9 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
+   <!-- <script src="js/plugins/morris/raphael.min.js"></script>-->
     <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
+   <!-- <script src="js/plugins/morris/morris-data.js"></script>-->
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
@@ -406,6 +384,7 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+    <script src="js/menu.js"></script>
 
 </body>
 
