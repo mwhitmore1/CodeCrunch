@@ -1,18 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CodeCrunch.API.Infrastructure;
-using CodeCrunch.API.Models;
+﻿using CodeCrunch.Core.Repository;
 using Microsoft.Owin.Security.OAuth;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.Owin.Security;
 
 namespace CodeCrunch.API.Provider
 {
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
+        private Func<IAuthorizationRepository> _authRepositoryFactory;
+        private IAuthorizationRepository _authRepository => _authRepositoryFactory.Invoke();
+
+        public CustomOAuthProvider(Func<IAuthorizationRepository> authRepositoryFactory)
+        {
+            _authRepositoryFactory = authRepositoryFactory;
+            /*
+                function getSomeObject() {
+                    return { hey: 'there' };
+                }
+
+                function module(factory) {
+                    var object = factory();
+                }
+
+                module(getSomeObject);
+            */
+        }
+
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -26,20 +40,21 @@ namespace CodeCrunch.API.Provider
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowOrigin });
 
-            using (AuthorizationRepository authRepository = new AuthorizationRepository())
-            {
-                User user = await authRepository.FindUser(context.UserName, context.Password);
+            
+            var user = await _authRepository.FindUser(context.UserName, context.Password);
 
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
+            if (user == null)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
             }
 
             var token = new ClaimsIdentity(context.Options.AuthenticationType);
             token.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            token.AddClaim(new Claim(ClaimTypes.Role, "user"));
+            foreach (var role in user.Roles)
+            {
+                token.AddClaim(new Claim(ClaimTypes.Role, role.Role.Name));
+            }
 
             context.Validated(token);
         }

@@ -1,7 +1,7 @@
 ﻿using CodeCrunch.Core.Domain;
 using CodeCrunch.Core.Models;
 
-namespace CodeCrunch.API.Infrastructure
+namespace CodeCrunch.Core.Infrastructure
 {
     public class UserCreator
     {

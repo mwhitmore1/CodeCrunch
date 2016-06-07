@@ -1,4 +1,5 @@
 ﻿using CodeCrunch.API.Infrastructure;
+using CodeCrunch.Core.Repository;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
@@ -12,7 +13,12 @@ namespace CodeCrunch.API.Controllers
 {
     public class BaseApiController : ApiController
     {
-        protected AuthorizationRepository _repo = new AuthorizationRepository();
+        private readonly IUserRepository _userRepository;
+
+        protected BaseApiController(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
 
         protected IHttpActionResult GetErrorResult(IdentityResult result)
         {
@@ -40,16 +46,6 @@ namespace CodeCrunch.API.Controllers
             }
 
             return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
-
-            base.Dispose(disposing);
         }
     }
 }

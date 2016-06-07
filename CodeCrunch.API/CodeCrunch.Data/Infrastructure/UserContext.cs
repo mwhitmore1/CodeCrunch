@@ -1,0 +1,100 @@
+﻿using CodeCrunch.Core.Domain;
+using Microsoft.AspNet.Identity;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace CodeCrunch.Data.Infrastructure
+{
+    public class UserContext : DbContext
+    {
+        public UserContext()
+            : base("CodeCrunch")
+        {
+
+        }
+        public IDbSet<Bootcamp> Bootcamps { get; set; }
+        public IDbSet<Chapter> Chapters { get; set; }
+        public IDbSet<Module> Modules { get; set; }
+        public IDbSet<ProfilePicture> ProfilePictures { get; set; }
+        public IDbSet<Student> Students { get; set; }
+        public IDbSet<Track> Tracks { get; set; }
+        public IDbSet<User> Users { get; set; }
+        public IDbSet<Role> Roles { get; set; }
+        public IDbSet<UserRole> UserRoles { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //modelBuilder.Entity<Student>()
+              //  .HasRequired(s => s.User)
+                //.WithOptional(u => u.Student);
+
+            //modelBuilder.Entity<Bootcamp>()
+              //  .HasRequired(b => b.User)
+                //.WithOptional(u => u.Bootcamp);
+
+            modelBuilder.Entity<ProfilePicture>()
+                .HasRequired(pp => pp.User);
+
+            modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Tracks)
+                .WithRequired(t => t.Bootcamp)
+                .HasForeignKey(t => t.BootcampId);
+
+            modelBuilder.Entity<Bootcamp>()
+               .HasMany(b => b.Modules)
+               .WithOptional(m => m.Bootcamp)
+               .HasForeignKey(m => m.BootcampId);
+
+            modelBuilder.Entity<Module>()
+                .HasMany(m => m.Tracks)
+                .WithMany(t => t.Modules)
+                .Map(tm =>
+                {
+                    tm.MapLeftKey("ModuleId");
+                    tm.MapRightKey("TrackId");
+                    tm.ToTable("TrackModule");
+                });
+
+            modelBuilder.Entity<Module>()
+                .HasMany(m => m.Chapters)
+                .WithRequired(c => c.Module)
+                .HasForeignKey(c => c.ModuleId);
+
+            modelBuilder.Entity<Student>()
+               
+               .HasMany(s => s.EnrolledTracks)
+               .WithMany(t => t.EnrolledStudents)
+               
+               .Map(ts =>
+               {
+                   ts.MapLeftKey("StudentId");
+                   ts.MapRightKey("TrackId");
+                   ts.ToTable("StudentTrack");
+               });
+
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            modelBuilder.Entity<Student>()
+               .HasMany(s => s.CompletedChapters)
+               .WithMany(c => c.CompletedChapterStudents)
+               .Map(cs =>
+               {
+                   cs.MapLeftKey("StudentId");
+                   cs.MapRightKey("CompletedChapterId");
+                   cs.ToTable("CompletedChapterStudent");
+               });
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Roles)
+                .WithRequired(ur => ur.User)
+                .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<Role>()
+                .HasMany(r => r.Users)
+                .WithRequired(ur => ur.Role)
+                .HasForeignKey(ur => ur.RoleId);
+        }
+    }
+}
