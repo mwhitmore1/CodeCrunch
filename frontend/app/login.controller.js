@@ -3,19 +3,20 @@
 
     angular
         .module('app')
-        .controller('RegisterController', RegisterController);
+        .controller('LoginController', LoginController);
 
-    RegisterController.$inject = ['authService', 'toastr'];
+    LoginController.$inject = ['authService', 'toastr'];
 
     /* @ngInject */
-    function RegisterController(authService, toastr) {
+    function LoginController(authService, toastr) {
         var vm = this;
-        vm.title = 'RegisterController';
+        vm.title = 'LoginController';
 
-        vm.registerUser = function(){
-        	authService.register(vm.form).then(
+        vm.loginUser = function(){
+            console.log("loginUser called")
+        	authService.login(vm.form).then(
         		function(response){
-        			toastr.success('Registration successful!');
+        			toastr.success('Login successful!');
         		}, function(error){
         			toastr.error("Error: " + error.message);
         			console.log("Error: " + error.message + " error.status");

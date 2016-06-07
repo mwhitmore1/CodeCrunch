@@ -55,14 +55,14 @@
                                         </div>
                                         <div class="tab-pane fade active in" id="signin">
                                             <form class="form-horizontal">
-                                                <fieldset>
+                                                <fieldset ng-controller="LoginController as login">
 
 <!-- Sign In Form -->
 <!-- Text input-->
                                                     <div class="control-group">
-                                                        <label class="control-label" for="userid">Alias:</label>
+                                                        <label class="control-label" for="userid">Email:</label>
                                                         <div class="controls">
-                                                            <input required="" id="userid" name="userid" type="text" class="form-control input-medium" placeholder="JoeSixpack@aol.com">
+                                                            <input ng-model="login.form.username" required id="userid" name="userid" type="text" class="form-control input-medium" placeholder="JoeSixpack@aol.com">
                                                         </div>
                                                     </div>
 
@@ -70,7 +70,7 @@
                                                     <div class="control-group">
                                                         <label class="control-label" for="passwordinput">Password:</label>
                                                         <div class="controls">
-                                                            <input required="" id="passwordinput" name="passwordinput" class="form-control input-medium" type="password" placeholder="********">
+                                                            <input ng-model="login.form.password" required id="passwordinput" name="passwordinput" class="form-control input-medium" type="password" placeholder="********">
                                                         </div>
                                                     </div>
 
@@ -89,7 +89,7 @@
                                                     <div class="control-group">
                                                         <label class="control-label" for="signin"></label>
                                                         <div class="controls">
-                                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                                            <button ng-click="login.loginUser()" id="signin" name="signin" class="btn btn-success">Sign In</button>
                                                         </div>
                                                     </div>
                                                 </fieldset>
@@ -349,6 +349,7 @@
             <script src="/app/app.js"></script>
             <script src="/app/auth.intercepter.js"></script>
             <script src="/app/register.controller.js"></script>
+            <script src="/app/login.controller.js"></script>
             <script src="/app/service/auth.service.js"></script>
             <!-- endinject -->
         </body>
