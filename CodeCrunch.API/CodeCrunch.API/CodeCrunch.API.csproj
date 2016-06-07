@@ -168,6 +168,7 @@
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\TracksController.cs" />
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
