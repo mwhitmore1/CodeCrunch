@@ -108,7 +108,7 @@ namespace CodeCrunch.API.Controllers
 
         private bool ModuleExists(int id)
         {
-            return _moduleRepository.Count(e => e.ModuleId == id) > 0;
+            return _moduleRepository.Any(e => e.ModuleId == id);
         }
     }
 }
