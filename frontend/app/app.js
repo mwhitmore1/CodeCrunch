@@ -8,7 +8,7 @@
 		 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 			$urlRouterProvider.otherwise("login");
 			$stateProvider
-			.state('addchapter', { url: '/addchapter', templateUrl: '/addchapter.html', controller: 'AddChapterController as addChapter'})
+			.state('addchapter', { url: '/addchapter', templateUrl: '../addChapter.html', controller: 'addChapterController as vm'})
 			.state('login', { url: '/student/profile', templateUrl: '/student.profile.html', controller: 'StudentProfileController as studentProfile'})
 			.state('posts', { url: '/posts', templateUrl: '/templates/posts.html', controller: 'PostsController as posts'})
 			.state('main', {url: '/main', templateUrl: '/index_main.html', controller: 'MainController as main'});
