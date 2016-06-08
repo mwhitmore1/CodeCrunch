@@ -62,13 +62,37 @@ namespace CodeCrunch.API.Infrastructure
                     tm.ToTable("TrackModule");
                 });
 
+//////////// Discussion forum
+
+            modelBuilder.Entity<Module>()
+                .HasMany(m => m.Questions)
+                .WithRequired(q => q.Module)
+                .HasForeignKey(q => q.ModuleId);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Questions)
+                .WithRequired(q => q.User)
+                .HasForeignKey(q => q.UserId);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Answers)
+                .WithRequired(q => q.User)
+                .HasForeignKey(q => q.UserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ModuleQuestion>()
+                .HasMany(q => q.ModuleAnswers)
+                .WithRequired(a => a.ModuleQuestion)
+                .HasForeignKey(a => a.ModuleQuestionId);
+
+////////////
+
             modelBuilder.Entity<Module>()
                 .HasMany(m => m.Chapters)
                 .WithRequired(c => c.Module)
                 .HasForeignKey(c => c.ModuleId);
 
-            modelBuilder.Entity<Student>()
-               
+            modelBuilder.Entity<Student>()   
                .HasMany(s => s.EnrolledTracks)
                .WithMany(t => t.EnrolledStudents)
                .Map(ts =>
@@ -102,5 +126,9 @@ namespace CodeCrunch.API.Infrastructure
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<CodeCrunch.API.Models.ModuleQuestion> ModuleQuestions { get; set; }
+
+        public System.Data.Entity.DbSet<CodeCrunch.API.Models.ModuleAnswer> ModuleAnswers { get; set; }
     }
 }

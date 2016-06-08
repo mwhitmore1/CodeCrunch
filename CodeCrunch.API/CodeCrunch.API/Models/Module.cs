@@ -24,6 +24,6 @@ namespace CodeCrunch.API.Models
         public virtual Bootcamp Bootcamp { get; set; }
         public virtual ICollection<Chapter> Chapters { get; set; }
         public virtual ICollection<Track> Tracks { get; set; }
-
+        public virtual ICollection<ModuleQuestion> Questions { get; set; }
     }
 }

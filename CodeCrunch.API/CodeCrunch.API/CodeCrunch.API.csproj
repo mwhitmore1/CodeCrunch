@@ -166,6 +166,8 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Controllers\ModuleAnswersController.cs" />
+    <Compile Include="Controllers\ModuleQuestionsController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TracksController.cs" />
@@ -173,21 +175,9 @@
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Infrastructure\UserCreator.cs" />
-    <Compile Include="Migrations\201606081725586_tagsandautoincreent.cs" />
-    <Compile Include="Migrations\201606081725586_tagsandautoincreent.Designer.cs">
-      <DependentUpon>201606081725586_tagsandautoincreent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606081728110_enrollment.cs" />
-    <Compile Include="Migrations\201606081728110_enrollment.Designer.cs">
-      <DependentUpon>201606081728110_enrollment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606081741410_e.cs" />
-    <Compile Include="Migrations\201606081741410_e.Designer.cs">
-      <DependentUpon>201606081741410_e.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606081750579_new.cs" />
-    <Compile Include="Migrations\201606081750579_new.Designer.cs">
-      <DependentUpon>201606081750579_new.cs</DependentUpon>
+    <Compile Include="Migrations\201606081842532_discussion.cs" />
+    <Compile Include="Migrations\201606081842532_discussion.Designer.cs">
+      <DependentUpon>201606081842532_discussion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
@@ -210,17 +200,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606081725586_tagsandautoincreent.resx">
-      <DependentUpon>201606081725586_tagsandautoincreent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606081728110_enrollment.resx">
-      <DependentUpon>201606081728110_enrollment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606081741410_e.resx">
-      <DependentUpon>201606081741410_e.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606081750579_new.resx">
-      <DependentUpon>201606081750579_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606081842532_discussion.resx">
+      <DependentUpon>201606081842532_discussion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
