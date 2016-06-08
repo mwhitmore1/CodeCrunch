@@ -9,11 +9,12 @@ namespace CodeCrunch.API.Models
 {
     public class User : IdentityUser
     {
-        //public virtual Student Student { get; set; }
-        //public virtual Bootcamp Bootcamp { get; set; }
-
         // Foreign keys
         public int? ProfilePictureId { get; set; }
+
+        public string Description { get; set; }
+        public string LinkedIn { get; set; }
+        public string Blog { get; set; }
 
         // Relationships
         public virtual ProfilePicture ProfilePicture { get; set; }

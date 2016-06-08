@@ -7,13 +7,13 @@ namespace CodeCrunch.API.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class again : IMigrationMetadata
+    public sealed partial class enrollment : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(again));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(enrollment));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606062223150_again"; }
+            get { return "201606081728110_enrollment"; }
         }
         
         string IMigrationMetadata.Source
