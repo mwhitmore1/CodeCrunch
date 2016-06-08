@@ -180,6 +180,7 @@
       <DependentUpon>201606081842532_discussion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnswerReturn.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
     <Compile Include="Models\Language.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Bootcamp.cs" />
     <Compile Include="Models\BootcampRegistrationModel.cs" />
+    <Compile Include="Models\QuestionReturn.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\RoleModelFactory.cs" />
     <Compile Include="Models\Student.cs" />

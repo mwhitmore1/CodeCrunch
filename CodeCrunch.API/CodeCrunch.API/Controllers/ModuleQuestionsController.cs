@@ -24,6 +24,48 @@ namespace CodeCrunch.API.Controllers
             return db.ModuleQuestions;
         }
 
+        // GET: api/ModuleQuestions/Module/4
+        [HttpGet]
+        [Route("api/ModuleQuestions/Module/{moduleId}")]
+        public List<QuestionReturn> GetModuleQuestionsByModule(int moduleId)
+        {
+            var data = db.ModuleQuestions.Where(q => q.ModuleId == moduleId).ToList();
+
+            var result = new List<QuestionReturn>();
+            foreach(ModuleQuestion q in data)
+            {
+                List<AnswerReturn> returnAnswers = new List<AnswerReturn>();
+
+                foreach(ModuleAnswer a in q.ModuleAnswers)
+                {
+                    var newAnswer = new AnswerReturn()
+                    {
+                        Text = a.Text,
+                        UserName = a.User.UserName,
+                        UpVote = a.UpVote,
+                        DownVote = a.DownVote,
+                        CreatedDate = a.CreatedDate
+                    };
+
+                    returnAnswers.Add(newAnswer);
+                }
+                
+                QuestionReturn returnModel = new QuestionReturn()
+                {
+                    Text = q.Text,
+                    UserName = q.User.UserName,
+                    UpVote = q.UpVote,
+                    DownVote = q.DownVote,
+                    ModuleAnswers = returnAnswers,
+                    CreatedDate = q.CreatedDate
+                };
+
+                result.Add(returnModel);
+            }
+
+            return result;
+        }
+
         // GET: api/ModuleQuestions/5
         [ResponseType(typeof(ModuleQuestion))]
         public async Task<IHttpActionResult> GetModuleQuestion(int id)
