@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function TrackFactory($http, $q) {
-        var url = "http://localhost:57079/api/tracks";
+        
         var service = {
             getTrack: getTrack,
             addTrack: addTrack,
@@ -20,7 +20,7 @@
 
         ////////////////
 
-    function getTrack () {
+    function getTrack (url) {
          var defer = $q.defer();
 
         $http({
@@ -34,7 +34,7 @@
                 return defer.promise;
             };
 
-        function addTrack(track) {
+        function addTrack(url,track) {
         	var defer = $q.defer();
         	
             $http ({
@@ -50,7 +50,7 @@
                 return defer.promise;
             };
 
-        function deleteTrack (track) {    
+        function deleteTrack (url, track) {    
             var defer = $q.defer();
 
         $http({
@@ -65,7 +65,7 @@
                 return defer.promise;
             };
 
-        function updateTrack (track) {
+        function updateTrack (url, track) {
          var defer = $q.defer();
 
         $http({
