@@ -24,13 +24,20 @@ namespace CodeCrunch.API.Infrastructure
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            //modelBuilder.Entity<Student>()
-              //  .HasRequired(s => s.User)
-                //.WithOptional(u => u.Student);
+            modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Languages)
+                .WithMany(l => l.Bootcamps)
+                .Map(bl =>
+                {
+                    bl.MapLeftKey("BootcampId");
+                    bl.MapRightKey("LanguageId");
+                    bl.ToTable("BootcampLanguage");
+                });
 
-            //modelBuilder.Entity<Bootcamp>()
-              //  .HasRequired(b => b.User)
-                //.WithOptional(u => u.Bootcamp);
+            modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Perks)
+                .WithOptional(p => p.Bootcamp)
+                .HasForeignKey(p => p.BootcampId);
 
             modelBuilder.Entity<ProfilePicture>()
                 .HasRequired(pp => pp.User);
@@ -64,13 +71,22 @@ namespace CodeCrunch.API.Infrastructure
                
                .HasMany(s => s.EnrolledTracks)
                .WithMany(t => t.EnrolledStudents)
-               
                .Map(ts =>
                {
                    ts.MapLeftKey("StudentId");
                    ts.MapRightKey("TrackId");
-                   ts.ToTable("StudentTrack");
+                   ts.ToTable("Enrollment");
                });
+
+            modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Languages)
+                .WithMany(l => l.Bootcamps)
+                .Map(bl =>
+                {
+                    bl.MapLeftKey("BootcampId");
+                    bl.MapRightKey("LanguageId");
+                    bl.ToTable("LanguageBootcamp");
+                });
 
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
@@ -81,7 +97,7 @@ namespace CodeCrunch.API.Infrastructure
                {
                    cs.MapLeftKey("StudentId");
                    cs.MapRightKey("CompletedChapterId");
-                   cs.ToTable("CompletedChapterStudent");
+                   cs.ToTable("CompletedChapters");
                });
 
             base.OnModelCreating(modelBuilder);

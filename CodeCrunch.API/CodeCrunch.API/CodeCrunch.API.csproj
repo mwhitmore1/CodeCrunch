@@ -173,20 +173,30 @@
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Infrastructure\UserCreator.cs" />
-    <Compile Include="Migrations\201606062218331_nonabstract.cs" />
-    <Compile Include="Migrations\201606062218331_nonabstract.Designer.cs">
-      <DependentUpon>201606062218331_nonabstract.cs</DependentUpon>
+    <Compile Include="Migrations\201606081725586_tagsandautoincreent.cs" />
+    <Compile Include="Migrations\201606081725586_tagsandautoincreent.Designer.cs">
+      <DependentUpon>201606081725586_tagsandautoincreent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606062223150_again.cs" />
-    <Compile Include="Migrations\201606062223150_again.Designer.cs">
-      <DependentUpon>201606062223150_again.cs</DependentUpon>
+    <Compile Include="Migrations\201606081728110_enrollment.cs" />
+    <Compile Include="Migrations\201606081728110_enrollment.Designer.cs">
+      <DependentUpon>201606081728110_enrollment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606081741410_e.cs" />
+    <Compile Include="Migrations\201606081741410_e.Designer.cs">
+      <DependentUpon>201606081741410_e.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606081750579_new.cs" />
+    <Compile Include="Migrations\201606081750579_new.Designer.cs">
+      <DependentUpon>201606081750579_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ModuleAnswer.cs" />
     <Compile Include="Models\ModuleQuestion.cs" />
+    <Compile Include="Models\Perk.cs" />
     <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Bootcamp.cs" />
     <Compile Include="Models\BootcampRegistrationModel.cs" />
@@ -200,11 +210,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606062218331_nonabstract.resx">
-      <DependentUpon>201606062218331_nonabstract.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606081725586_tagsandautoincreent.resx">
+      <DependentUpon>201606081725586_tagsandautoincreent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606062223150_again.resx">
-      <DependentUpon>201606062223150_again.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606081728110_enrollment.resx">
+      <DependentUpon>201606081728110_enrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606081741410_e.resx">
+      <DependentUpon>201606081741410_e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606081750579_new.resx">
+      <DependentUpon>201606081750579_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
