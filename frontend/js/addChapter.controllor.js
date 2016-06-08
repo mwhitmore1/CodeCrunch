@@ -5,27 +5,29 @@
            .module('app')
            .controller('addChapterController', addChapterController);
 
-       addChapterController.$inject = ['$log', 'addChapterFactory'];
+       addChapterController.$inject = [];
 
        /* @ngInject */
-       function addChapterController($log, addChapterFactory) {
+       function addChapterController() {
            var vm = this;
            vm.title = 'addChapterController';
+           vm.preview = false;
 
-           activate();
+        
 
            ////////////////
 
-           vm.newChapter = function(addNewChapters) {
-               addChapterFactory.newChapters(addNewChapters).then(
-                   function(response) {
-                       vm.chapters.push(response.data);
 
-                   },
-                   function(error) {
-                       $log.error('failure getting chapters', error
-                       });
-                   vm.newChapter = {};
-               }
+           // vm.newChapter = function(addNewChapters) {
+           //     addChapterFactory.newChapters(addNewChapters).then(
+           //         function(response) {
+           //             vm.chapters.push(response.data);
+
+           //         },
+           //         function(error) {
+           //             $log.error('failure getting chapters', error
+           //             });
+           //         vm.newChapter = {};
+
            }
        })();
