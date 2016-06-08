@@ -17,7 +17,7 @@ var paths = [
 	'bower_components/bootstrap-formhelpers/bfh-state.jquery.json',
         'bower_components/bootstrap-formhelpers/js/bootstrap-formhelpers-states.js',
         'bower_components/bootstrap-formhelpers/js/lang/en_US/bootstrap-formhelpers-states.en_US.js',
-	'./app/*.js','./app/**/*.css'];
+	'./app/**/*.js','./app/**/*.css'];
 
 gulp.task('connect', function() {
    connect.server({
