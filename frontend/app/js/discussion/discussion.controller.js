@@ -5,15 +5,15 @@
         .module('app')
         .controller('DiscussionController', DiscussionController);
 
-    DiscussionController.$inject = ['ServiceGenerator', 'apiUrl'];
+    DiscussionController.$inject = ['serviceGenerator', 'apiUrl'];
 
     /* @ngInject */
-    function DiscussionController(ServiceGenerator, apiUrl) {
+    function DiscussionController(serviceGenerator, apiUrl) {
         var vm = this;
         vm.title = 'DiscussionController';
         var moduleId = 1;
-        var url = apiUrl + 'api/ModuleQuestions/Module/' + moduleId;
-        var service = ServiceGenerator(url, 'Questions');
+        var url = apiUrl + 'api/ModuleQuestions';
+        var service = serviceGenerator(url, 'Questions');
 
         activate();
 

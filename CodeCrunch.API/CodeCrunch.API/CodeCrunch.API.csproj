@@ -186,6 +186,7 @@
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\ModuleReturn.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ModuleAnswer.cs" />
     <Compile Include="Models\ModuleQuestion.cs" />

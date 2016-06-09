@@ -20,20 +20,22 @@ namespace CodeCrunch.API.Controllers
         private UserContext db = new UserContext();
 
         // GET: api/ModuleQuestions
-        public List<QuestionReturn> GetModuleQuestions()
+        public List<ModuleQuestion> GetModuleQuestions()
         {
             var data = db.ModuleQuestions.ToList();
 
-            var result = new List<QuestionReturn>();
-            foreach (ModuleQuestion q in data)
-            {
-                QuestionFactory factory = new QuestionFactory();
-                var returnModel = factory.ModelToReturn(q);
+            //var result = new List<QuestionReturn>();
+            //foreach (ModuleQuestion q in data)
+            //{
+            //    QuestionFactory factory = new QuestionFactory();
+            //    var returnModel = factory.ModelToReturn(q);
 
-                result.Add(returnModel);
-            }
+            //    result.Add(returnModel);
+            //}
 
-            return result;
+            //return result;
+
+            return data;
         }
 
         // GET: api/ModuleQuestions/5

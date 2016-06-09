@@ -20,7 +20,7 @@ namespace CodeCrunch.API.Controllers
         // GET: api/Modules
         public IEnumerable<Module> GetModules()
         {
-            return db.Modules;
+            return db.Modules.ToList();
         }
 
         // GET: api/Modules/5
