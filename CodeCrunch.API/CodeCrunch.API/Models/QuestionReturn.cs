@@ -12,6 +12,6 @@ namespace CodeCrunch.API.Models
         public DateTime CreatedDate { get; set; }
         public int UpVote { get; set; }
         public int DownVote { get; set; }
-        public virtual ICollection<AnswerReturn> ModuleAnswers { get; set; }
+        public ICollection<AnswerReturn> ModuleAnswers { get; set; }
     }
 }

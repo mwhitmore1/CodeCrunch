@@ -11,54 +11,24 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
+using System.Web;
 
 namespace CodeCrunch.API.Controllers
 {
-    public class ModuleQuestionsController : ApiController
+    public class ModuleQuestionsController : BaseApiController
     {
         private UserContext db = new UserContext();
 
         // GET: api/ModuleQuestions
-        public IQueryable<ModuleQuestion> GetModuleQuestions()
+        public List<QuestionReturn> GetModuleQuestions()
         {
-            return db.ModuleQuestions;
-        }
-
-        // GET: api/ModuleQuestions/Module/4
-        [HttpGet]
-        [Route("api/ModuleQuestions/Module/{moduleId}")]
-        public List<QuestionReturn> GetModuleQuestionsByModule(int moduleId)
-        {
-            var data = db.ModuleQuestions.Where(q => q.ModuleId == moduleId).ToList();
+            var data = db.ModuleQuestions.ToList();
 
             var result = new List<QuestionReturn>();
-            foreach(ModuleQuestion q in data)
+            foreach (ModuleQuestion q in data)
             {
-                List<AnswerReturn> returnAnswers = new List<AnswerReturn>();
-
-                foreach(ModuleAnswer a in q.ModuleAnswers)
-                {
-                    var newAnswer = new AnswerReturn()
-                    {
-                        Text = a.Text,
-                        UserName = a.User.UserName,
-                        UpVote = a.UpVote,
-                        DownVote = a.DownVote,
-                        CreatedDate = a.CreatedDate
-                    };
-
-                    returnAnswers.Add(newAnswer);
-                }
-                
-                QuestionReturn returnModel = new QuestionReturn()
-                {
-                    Text = q.Text,
-                    UserName = q.User.UserName,
-                    UpVote = q.UpVote,
-                    DownVote = q.DownVote,
-                    ModuleAnswers = returnAnswers,
-                    CreatedDate = q.CreatedDate
-                };
+                QuestionFactory factory = new QuestionFactory();
+                var returnModel = factory.ModelToReturn(q);
 
                 result.Add(returnModel);
             }
@@ -67,7 +37,7 @@ namespace CodeCrunch.API.Controllers
         }
 
         // GET: api/ModuleQuestions/5
-        [ResponseType(typeof(ModuleQuestion))]
+        [ResponseType(typeof(QuestionReturn))]
         public async Task<IHttpActionResult> GetModuleQuestion(int id)
         {
             ModuleQuestion moduleQuestion = await db.ModuleQuestions.FindAsync(id);
@@ -76,10 +46,14 @@ namespace CodeCrunch.API.Controllers
                 return NotFound();
             }
 
-            return Ok(moduleQuestion);
+            QuestionFactory factory = new QuestionFactory();
+            QuestionReturn returnModel = factory.ModelToReturn(moduleQuestion);
+
+            return Ok(returnModel);
         }
 
         // PUT: api/ModuleQuestions/5
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutModuleQuestion(int id, ModuleQuestion moduleQuestion)
         {
@@ -116,20 +90,30 @@ namespace CodeCrunch.API.Controllers
 
         // POST: api/ModuleQuestions
         [ResponseType(typeof(ModuleQuestion))]
-        public async Task<IHttpActionResult> PostModuleQuestion(ModuleQuestion moduleQuestion)
+        public async Task<IHttpActionResult> PostModuleQuestion(QuestionForm form)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.ModuleQuestions.Add(moduleQuestion);
+            // Get the user's id from the token
+            string name = HttpContext.Current.User.Identity.Name;
+            User user = await _repo.FindUserByName(name);
+
+            QuestionFactory factory = new QuestionFactory();
+            ModuleQuestion newQuestion = factory.FormToModel(form, user.Id);
+
+            db.ModuleQuestions.Add(newQuestion);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = moduleQuestion.ModuleQuestionId }, moduleQuestion);
+            QuestionReturn questionReturn = factory.ModelToReturn(newQuestion);
+
+            return CreatedAtRoute("DefaultApi", new { id = newQuestion.ModuleQuestionId }, questionReturn);
         }
 
         // DELETE: api/ModuleQuestions/5
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(ModuleQuestion))]
         public async Task<IHttpActionResult> DeleteModuleQuestion(int id)
         {
