@@ -164,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Models\AnswerFactory.cs" />
+    <Compile Include="Models\AnswerForm.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\ModuleAnswersController.cs" />
@@ -191,6 +193,8 @@
     <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Bootcamp.cs" />
     <Compile Include="Models\BootcampRegistrationModel.cs" />
+    <Compile Include="Models\QuestionFactory.cs" />
+    <Compile Include="Models\QuestionForm.cs" />
     <Compile Include="Models\QuestionReturn.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\RoleModelFactory.cs" />
