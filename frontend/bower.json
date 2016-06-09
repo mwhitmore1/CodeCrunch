@@ -24,14 +24,29 @@
     "angular-local-storage": "^0.2.7",
     "angular-toastr": "^1.7.0",
     "angular-mocks": "^1.5.5",
-    "classie": "^1.0.1",
     "jquery-easing": "*",
-    "fittext": "*",
-    "create": "*",
     "wow": "^1.1.2",
-    "glyphicons-halflings": "*",
     "font-awesome": "^4.6.3",
     "bootstrap-formhelpers": "^2.3.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css",
+        "dist/js/bootstrap.min.js"
+      ]
+    },
+    "bootstrap-formhelpers": {
+      "main": [
+        "dist/css/bootstrap-formhelpers.min.css",
+        "dist/js/bootstrap-formhelpers.min.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
   },
   "resolutions": {
     "jquery": "2.2.4",
