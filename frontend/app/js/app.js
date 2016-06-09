@@ -22,6 +22,7 @@
 				.state('student', { url: '/student', templateUrl: '/templates/student/student.index.html', controller: 'StudentsController as student' })
 					.state('student.profile', { url: '/profile', templateUrl: '/templates/student/student.profile.html', controller: 'StudentProfileController as studentProfile' })
 					.state('student.progress', { url: '/progress', templateUrl: '/templates/student/student.progress.html', controller: 'StudentProgressController as studentProgress' })
+					.state('student.viewchapter', { url: '/viewchapter', templateUrl: '/templates/student/student.viewchapter.html', controller: 'StudentViewChapterController as studentViewChapter' })
 			$httpProvider.interceptors.push('authInterceptor');
 		 })	
 		 .value('apiUrl', 'http://localhost:57079/');
