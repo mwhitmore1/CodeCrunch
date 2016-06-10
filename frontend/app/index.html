@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="tab-pane fade active in" id="signin">
                                                 <form class="form-horizontal">
-                                                    <fieldset ng-controller="LoginController as login">
+                                                    <fieldset>
 
     <!-- Sign In Form -->
     <!-- Text input-->
@@ -288,7 +288,7 @@
                         </li>
                     
                         <li>
-                            <a href="tracks.html">
+                            <a ui-sref="browseTracks">
                                 <i class="fa fa-road">            
                                 Tracks 
                                     <span class="icon">
@@ -298,7 +298,7 @@
                         </li>
 <br>
                         <li>
-                            <a href="modules.html">
+                            <a ui-sref="bootcamp.modules">
                                 <i class="fa fa-wrench">
                                 Create Modules
                                     <span class="icon">        
@@ -308,7 +308,7 @@
                         </li>
 
                         <li>
-                            <a href="students.html">
+                            <a ui-sref="bootcamp.students">
                                 <i class="fa fa-graduation-cap" >
                                 Students
                                     <span class="icon">
@@ -490,12 +490,15 @@
     <script src="js/home/home.controller.js"></script>
     <script src="js/services/auth.intercepter.js"></script>
     <script src="js/services/auth.service.js"></script>
+    <script src="js/services/bootcamp.factory.js"></script>
+    <script src="js/services/chapter.factory.js"></script>
     <script src="js/services/module.factory.js"></script>
     <script src="js/services/service.generator.js"></script>
     <script src="js/services/track.factory.js"></script>
     <script src="js/student/student.controller.js"></script>
     <script src="js/student/student.profile.controller.js"></script>
     <script src="js/student/student.progress.controller.js"></script>
+    <script src="js/student/student.viewchapter.controller.js"></script>
     <script src="js/theme/cbpAnimatedHeader.js"></script>
     <script src="js/theme/classie.js"></script>
     <script src="js/theme/creative.js"></script>

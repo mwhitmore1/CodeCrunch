@@ -5,7 +5,7 @@
         .module('app')
         .factory('chapterFactory', chapterFactory);
 
-    moduleFactory.$inject = ['serviceGenerator', 'apiUrl'];
+    chapterFactory.$inject = ['serviceGenerator', 'apiUrl'];
 
     /* @ngInject */
     function chapterFactory(serviceGenerator, apiUrl) {
