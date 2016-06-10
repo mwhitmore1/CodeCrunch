@@ -3,7 +3,7 @@ namespace CodeCrunch.API.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class initialCreate : DbMigration
     {
         public override void Up()
         {

@@ -5,11 +5,21 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.ObjectModel;
 
 namespace CodeCrunch.API.Models
 {
     public class Bootcamp : User
     {
+
+        public Bootcamp()
+        {
+            Perks = new Collection<Perk>();
+            Tracks = new Collection<Track>();
+            Modules = new Collection<Module>();
+            Languages = new Collection<Language>();
+        }
+
         // Primary key to be inherited from User
         // Foriegn keys - none
 
