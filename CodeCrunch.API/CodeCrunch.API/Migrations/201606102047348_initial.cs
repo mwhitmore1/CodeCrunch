@@ -3,7 +3,7 @@ namespace CodeCrunch.API.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -99,6 +99,7 @@ namespace CodeCrunch.API.Migrations
                         ChapterName = c.String(),
                         ChapterDescription = c.String(),
                         Likes = c.Int(nullable: false),
+                        ChapterContent = c.String(),
                     })
                 .PrimaryKey(t => t.ChapterId)
                 .ForeignKey("dbo.Module", t => t.ModuleId, cascadeDelete: true)

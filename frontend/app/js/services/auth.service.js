@@ -52,6 +52,7 @@
 					function(response){
 						localStorageService.set('authorizationData', response.data);
 						defer.resolve(response.data);
+						console.log(response.data)
 					}, function(error){
 						defer.reject(error);
 					});

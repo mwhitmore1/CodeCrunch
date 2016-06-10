@@ -35,13 +35,34 @@ namespace CodeCrunch.API.Provider
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+                else
+                {
+                    var props = new AuthenticationProperties(new Dictionary<string, string>
+                    {
+                        { "userID", user.Id }
+                    });
+
+
+
+                    var token = new ClaimsIdentity(context.Options.AuthenticationType);
+                    token.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+                    token.AddClaim(new Claim(ClaimTypes.Role, "user"));
+                    var ticket = new AuthenticationTicket(token, props);
+                    
+
+                    context.Validated(ticket);
+                }
             }
 
-            var token = new ClaimsIdentity(context.Options.AuthenticationType);
-            token.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            token.AddClaim(new Claim(ClaimTypes.Role, "user"));
+        }
 
-            context.Validated(token);
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach(var property in context.Properties.Dictionary) {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+
+            return Task.FromResult<object>(null);
         }
     }
 }
