@@ -29,7 +29,7 @@ namespace CodeCrunch.API.Infrastructure
                 .WithMany(l => l.Bootcamps)
                 .Map(bl =>
                 {
-                    bl.MapLeftKey("BootcampId");
+                    bl.MapLeftKey("Id");
                     bl.MapRightKey("LanguageId");
                     bl.ToTable("BootcampLanguage");
                 });

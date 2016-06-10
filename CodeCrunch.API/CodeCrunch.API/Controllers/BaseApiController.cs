@@ -7,13 +7,14 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using CodeCrunch.API.Models;
 
 namespace CodeCrunch.API.Controllers
 {
     public class BaseApiController : ApiController
     {
         protected AuthorizationRepository _repo = new AuthorizationRepository();
-
+        protected ModelFactory modelFactory = new ModelFactory();
         protected IHttpActionResult GetErrorResult(IdentityResult result)
         {
             if (result == null)

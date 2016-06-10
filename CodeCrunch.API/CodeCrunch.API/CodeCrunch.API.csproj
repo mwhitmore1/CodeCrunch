@@ -165,9 +165,9 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BootcampsController.cs" />
-    <Compile Include="Migrations\201606100639237_initial.cs" />
-    <Compile Include="Migrations\201606100639237_initial.Designer.cs">
-      <DependentUpon>201606100639237_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201606101813144_initialCreate.cs" />
+    <Compile Include="Migrations\201606101813144_initialCreate.Designer.cs">
+      <DependentUpon>201606101813144_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerFactory.cs" />
@@ -187,6 +187,8 @@
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\ModuleForm.cs" />
     <Compile Include="Models\ModuleReturn.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ModuleAnswer.cs" />
@@ -208,8 +210,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606100639237_initial.resx">
-      <DependentUpon>201606100639237_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606101813144_initialCreate.resx">
+      <DependentUpon>201606101813144_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

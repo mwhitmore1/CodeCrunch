@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.Design;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.ObjectModel;
 
 namespace CodeCrunch.API.Models
 {
     public class Track
     {
+
+        public Track()
+        {
+            Languages = new Collection<Language>();
+            Modules = new Collection<Module>();
+            EnrolledStudents = new Collection<Student>();
+        }
+
         // Primary key
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrackId { get; set; }
