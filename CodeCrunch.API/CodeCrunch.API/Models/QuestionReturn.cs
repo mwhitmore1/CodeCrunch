@@ -7,6 +7,7 @@ namespace CodeCrunch.API.Models
 {
     public class QuestionReturn
     {
+        public int ModuleQuestionId { get; set; }
         public string UserName { get; set; }
         public string Text { get; set; }
         public DateTime CreatedDate { get; set; }
