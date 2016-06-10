@@ -27,8 +27,7 @@ namespace CodeCrunch.API.Controllers
             var result = new List<AnswerReturn>();
             foreach (ModuleAnswer q in data)
             {
-                AnswerFactory factory = new AnswerFactory();
-                var returnModel = factory.ModelToReturn(q);
+                var returnModel = modelFactory.ModelToReturn(q);
 
                 result.Add(returnModel);
             }
@@ -46,8 +45,7 @@ namespace CodeCrunch.API.Controllers
                 return NotFound();
             }
 
-            AnswerFactory factory = new AnswerFactory();
-            AnswerReturn returnModel = factory.ModelToReturn(moduleAnswer);
+            AnswerReturn returnModel = modelFactory.ModelToReturn(moduleAnswer);
 
             return Ok(returnModel);
         }
@@ -89,7 +87,9 @@ namespace CodeCrunch.API.Controllers
         }
 
         // POST: api/ModuleAnswers
-        [ResponseType(typeof(ModuleAnswer))]
+        [HttpPost]
+        [Route("api/ModuleAnswers", Name = "PostModuleAnswer")]
+        [ResponseType(typeof(AnswerReturn))]
         public async Task<IHttpActionResult> PostModuleAnswer(AnswerForm form)
         {
             if (!ModelState.IsValid)
@@ -101,15 +101,14 @@ namespace CodeCrunch.API.Controllers
             string name = HttpContext.Current.User.Identity.Name;
             User user = await _repo.FindUserByName(name);
 
-            AnswerFactory factory = new AnswerFactory();
-            ModuleAnswer newAnswer = factory.FormToModel(form, user.Id);
+            ModuleAnswer newAnswer = modelFactory.FormToModel(form, user.Id);
 
             db.ModuleAnswers.Add(newAnswer);
             await db.SaveChangesAsync();
 
-            AnswerReturn AnswerReturn = factory.ModelToReturn(newAnswer);
+            AnswerReturn answerReturn = modelFactory.ModelToReturn(newAnswer);
 
-            return CreatedAtRoute("DefaultApi", new { id = newAnswer.ModuleAnswerId }, AnswerReturn);
+            return CreatedAtRoute("PostModuleAnswer", new { id = newAnswer.ModuleAnswerId }, answerReturn);
         }
 
         // DELETE: api/ModuleAnswers/5
