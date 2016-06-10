@@ -164,6 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BootcampsController.cs" />
+    <Compile Include="Migrations\201606100639237_initial.cs" />
+    <Compile Include="Migrations\201606100639237_initial.Designer.cs">
+      <DependentUpon>201606100639237_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerFactory.cs" />
     <Compile Include="Models\AnswerForm.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -177,11 +183,6 @@
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Infrastructure\UserCreator.cs" />
-    <Compile Include="Migrations\201606081842532_discussion.cs" />
-    <Compile Include="Migrations\201606081842532_discussion.Designer.cs">
-      <DependentUpon>201606081842532_discussion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerReturn.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
@@ -207,8 +208,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606081842532_discussion.resx">
-      <DependentUpon>201606081842532_discussion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606100639237_initial.resx">
+      <DependentUpon>201606100639237_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

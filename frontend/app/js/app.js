@@ -15,7 +15,7 @@
 					.state('bootcamp.dashboard', { url: '/dashboard', templateUrl: '/templates/bootcamp/bootcamp.dashboard.html', controller: 'BootcampDashboardController as bootcampDashboard' })
 					.state('bootcamp.tracks', { url: '/tracks', templateUrl: '/templates/bootcamp/bootcamp.tracks.html', controller: 'BootcampTracksController as bootcampTracks' })
 					.state('bootcamp.addChapter', { url: '/addChapter', templateUrl: '/templates/bootcamp/bootcamp.addChapter.html', controller: 'BootcampAddChapterController as bootcampAddChapter' })
-					.state('bootcamp.profile', { url: '/profile', templateUrl: '/templates/bootcamp/bootcamp.profile.html', controller: 'BootcampProfileController as bootcampProfile' })
+					.state('bootcamp.profile', { url: '/profile?bootcampId', templateUrl: '/templates/bootcamp/bootcamp.profile.html', controller: 'BootcampProfileController as bootcampProfile' })
 					.state('bootcamp.modules', { url: '/modules', templateUrl: '/templates/bootcamp/bootcamp.modules.html', controller: 'BootcampModulesController as bootcampModules' })
 					.state('bootcamp.moduleDetail', { url: '/moduleDetail', templateUrl: '/templates/bootcamp/bootcamp.module.detail.html', controller: 'BootcampModuleDetailController as bootcampModuleDetail'})
 					.state('bootcamp.students', { url: '/students', templateUrl: '/templates/bootcamp/bootcamp.students.html', controller: 'BootcampStudentsController as bootcampStudents' })
@@ -25,5 +25,5 @@
 					.state('student.viewchapter', { url: '/viewchapter', templateUrl: '/templates/student/student.viewchapter.html', controller: 'StudentViewChapterController as studentViewChapter' })
 			$httpProvider.interceptors.push('authInterceptor');
 		 })	
-		 .value('apiUrl', 'http://localhost:57079/');
+		 .value('apiUrl', 'http://localhost:57079/api/');
 })();
