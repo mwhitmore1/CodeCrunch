@@ -1,14 +1,15 @@
 (function() {
     'use strict';
 
-    angular.module('app')
-        .controller('HomeController', HomeController);
+    angular
+        .module('app')
+        .controller('AppController', AppController);
 
-    HomeController.$inject = ['authService', 'toastr'];
+    AppController.$inject = ['authService'];
 
-    function HomeController(authService, toastr) {
+    /* @ngInject */
+    function AppController(authService) {
         var vm = this;
-
         vm.loginUser = function() {
             console.log("loginUser called")
             authService.login(vm.loginForm).then(
@@ -33,5 +34,4 @@
                 });
         };
     }
-
 })();
