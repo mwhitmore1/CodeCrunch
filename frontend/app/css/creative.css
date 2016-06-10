@@ -169,11 +169,6 @@ border-radius: 15px;
 }
 
 
-.transparent {
-  background:#7f7f7f;
-  background:rgba(0,0,0,0.9);
-}
-
 
 html,
 body {
@@ -662,4 +657,31 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+
+#browseTracksTitle {
+  color: rgba(0, 0, 102, 0.8);
+}
+
+
+#jumboTron {
+  color:  rgb(0, 0, 26);
+  background-color:  rgb(0, 0, 26);
+}
+
+#browseLeftText {
+  color: #FFFFFF;
+  text-align: left;
+}
+
+#searchTracks {
+  color: rgba(0, 0, 102, 0.8);
+}
+
+#buttonClass {
+  color: #FFFFFF;
+}
+
+#trackLanguages {
+  color: rgb(0, 0, 26);
 }
