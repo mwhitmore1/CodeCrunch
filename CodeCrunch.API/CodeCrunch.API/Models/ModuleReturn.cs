@@ -8,7 +8,7 @@ namespace CodeCrunch.API.Models
 {
     public class ModuleReturn
     {
-        public string BootcampId { get; set; }      
+        public string CreatorName { get; set; }      
         public string ModuleName { get; set; }
         public string ModuleDescription { get; set; }
 
@@ -16,6 +16,6 @@ namespace CodeCrunch.API.Models
         public Bootcamp Bootcamp { get; set; }
         public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Track> Tracks { get; set; }
-        public ICollection<ModuleQuestion> Questions { get; set; }
+        public ICollection<QuestionReturn> Questions { get; set; }
     }
 }

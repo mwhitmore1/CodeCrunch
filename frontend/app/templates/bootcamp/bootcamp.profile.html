@@ -1,103 +1,71 @@
 <header>
-
-<div class="container">
-    <div class="transparent">
-        <div class="panel-heading">
-            <h3 class="panel-title">Bootcamp Profile</h3>
-        </div>
-        <div class="panel-body">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Origin Code Academy</h3>
-                    <div>
-                        <img class="profile-pic" src="img/studentPic.jpg" alt="What a Student may look like" style="width:128px;height:128px;">
+    <div class="container">
+        <div class="transparent">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bootcamp Profile</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Origin Code Academy</h3>
+                        <div>
+                            <img class="profile-pic" src="img/origin.jpg" alt="What a Student may look like" style="height:128px;">
+                        </div>
+                        <br>
+                        <p><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</p>
+                        <p><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</p>
+                        <p><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</p>
                     </div>
-                    <br>
-                    <p><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</p>
-                    <p><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</p>
-                    <p><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</p>
-                </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="">Bootcamp Name</label>
-                        <!-- <input type="text" ng-model="" class="form-control" autofocus> -->
-                        <p>{{bootcampProfile.bootcamp.bootcampName}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Contact E-mail</label>
-                        <!-- <input type="text" ng-model="" class="form-control" autofocus> -->
-                        <p>{{bootcampProfile.bootcamp.userName}}</p>
-                    </div>
-                    <!-- <div class="form-group">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="">Bootcamp Name</label>
+                            <!-- <input type="text" ng-model="" class="form-control" autofocus> -->
+                            <p>{{bootcampProfile.bootcamp.bootcampName}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Contact E-mail</label>
+                            <!-- <input type="text" ng-model="" class="form-control" autofocus> -->
+                            <p>{{bootcampProfile.bootcamp.userName}}</p>
+                        </div>
+                        <!-- <div class="form-group">
                                 <label for="">Contact E-mail</label>
                                 <input type="text" ng-model="" class="form-control" autofocus>
                                 <p>{{bootcampProfile.bootcamp.emailAddress}}</p>
                             </div> -->
-                    <div class="form-group">
-                        <label for="">Bootcamp Address</label>
-                        <!-- <input type="text" ng-model="" class="form-control"> -->
-                        <p>{{bootcampProfile.bootcamp.bootcampAddress}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bootcamp City</label>
-                        <!-- <input type="text" ng-model="" class="form-control"> -->
-                        <p>{{bootcampProfile.bootcamp.bootcampCity}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bootcamp State</label>
-                        <!-- <input type="text" ng-model="" class="form-control"> -->
-                        <p>{{bootcampProfile.bootcamp.bootcampState}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bootcamp Website</label>
-                        <!-- <input type="text" ng-model="" class="form-control"> -->
-                        <p>{{bootcampProfile.bootcamp.bootcampSite}}
-                    </div>
-                    <div class="form-group">
-                        <label for="">LinkedIn Profile</label>
-                        <!-- <input type="text" ng-model="" class="form-control"> -->
-                        <p>{{bootcampProfile.bootcamp.linkedIn}}</p>
-                    </div>
-                    <div class="form-group">
-                        <!-- NEEDS TO BE ADDED TO THE DB -->
-                        <label for="">Curriculum (tags will go here)</label>
-                        <ui-select multiple tagging tagging-label="(Add a tag)" ng-model="bootcampProfile.bootcamp.arrayTags" sortable="true" style="width: 300px; display: block; margin: 0 auto;" title="Choose a Tag">
-                            <ui-select-match placeholder="Select tags">{{$item}}</ui-select-match>
-                            <ui-select-choices repeat="tag in bootcampProfile.availableTags | filter: $select.search">
-                                {{tag}}
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-                    <div class="form-group" ng-model="bootcamp.bootcampProfile.perks">
-                        <!--    <label for="">Bootcamp Perks</label>
-                             <input type="text" ng-model="" class="form-control" autofocus>
-                             <p ng-repeat="perk in bootcampProfile.bootcamp.perks">{{perk}}</p>
-                                                         </div> -->
-                        <!-- <div class="form-group">
-                                <label for="">Bio</label>
-                                <input type="text" ng-model="" class="form-control">
-                                <p>{{bootcampProfile.bootcamp.Bio}}</p>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Twitter</label>
-                                <input type="text" ng-model="" class="form-control">
-                                <p>{{bootcampProfile.bootcamp.Twitter}}</p>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ingstagram</label>
-                                <input type="text" ng-model="" class="form-control">
-                                <p>{{bootcampProfile.bootcamp.Ingstagram}}</p>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Facebook</label>
-                                <input type="text" ng-model="" class="form-control">
-                                <p>{{bootcampProfile.bootcamp.Facebook}}</p>
-                            </div> -->
+                        <div class="form-group">
+                            <label for="">Bootcamp Address</label>
+                            <!-- <input type="text" ng-model="" class="form-control"> -->
+                            <p>{{bootcampProfile.bootcamp.bootcampAddress}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bootcamp City</label>
+                            <!-- <input type="text" ng-model="" class="form-control"> -->
+                            <p>{{bootcampProfile.bootcamp.bootcampCity}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bootcamp State</label>
+                            <!-- <input type="text" ng-model="" class="form-control"> -->
+                            <p>{{bootcampProfile.bootcamp.bootcampState}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bootcamp Website</label>
+                            <!-- <input type="text" ng-model="" class="form-control"> -->
+                            <p>{{bootcampProfile.bootcamp.bootcampSite}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">LinkedIn Profile</label>
+                            <!-- <input type="text" ng-model="" class="form-control"> -->
+                            <p>{{bootcampProfile.bootcamp.linkedIn}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bootcamp Perks</label>
+                            <!-- <input type="text" ng-model="" class="form-control" autofocus> -->
+                            <p>{{bootcampProfile.perks.perk.name}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
- <!--   <pre>{{bootcampProfile.bootcamp | json}}</pre>-->
-    </header>
+    <!-- <pre>{{bootcampProfile.bootcamp | json}}</pre> -->
+</header>

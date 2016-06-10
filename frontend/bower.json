@@ -46,6 +46,12 @@
       "main": [
         "css/font-awesome.css"
       ]
+    },
+    "navgoco": {
+      "main": [
+        "src/jquery.navgoco.min.js",
+        "src/jquery.navgoco.css"
+      ]
     }
   },
   "resolutions": {

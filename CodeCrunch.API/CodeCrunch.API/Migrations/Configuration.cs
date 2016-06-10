@@ -3,55 +3,94 @@ namespace CodeCrunch.API.Migrations
     using Infrastructure;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Models;
-    using System;
-    using System.Data.Entity;
+    using CodeCrunch.API.Models;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using System.Data.Entity.Validation;
+    using System.Diagnostics;
+    using System;
     internal sealed class Configuration : DbMigrationsConfiguration<CodeCrunch.API.Infrastructure.UserContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(CodeCrunch.API.Infrastructure.UserContext context)
+        private Random random = new Random();
+
+        protected override void Seed(UserContext context)
         {
-            /*
-            UserManager<User> manager = new UserManager<User>(new UserStore<User>(new UserContext()));
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new UserContext()));
-            var user = new User()
+            //  This method will be called after migrating to the latest version.
+
+
+
+            if (!context.Users.Any(u => u.UserName == "admin@origincodeacademy.com"))
             {
-                Email = "fake@email.com",
-                UserName = "SuperUser",
+                var userStore = new UserStore<User>(context);
+                var userManager = new UserManager<User>(userStore);
+
+                CreateBootcampCalled("Origin Code Academy", userManager, context);
+                CreateBootcampCalled("DevBootcamp", userManager, context);
+                CreateBootcampCalled("Learn Academy", userManager, context);
+                CreateBootcampCalled("HackReactor", userManager, context);
+                CreateBootcampCalled("DevFoundry", userManager, context);
+                CreateBootcampCalled("Flat Iron School", userManager, context);
+            }
+        }
+
+        private void CreateBootcampCalled(string name, UserManager<User> userManager, UserContext context)
+        {
+            string email = "admin@" + string.Join("", name.Split(' ')).ToLower().Trim() + ".com";
+
+            var newBootcamp = new Bootcamp
+            {
+                BootcampName = name,
+                UserName = email,
+                Email = email,
+                BootcampState = "California"
+            };
+            userManager.Create(newBootcamp, "Password123_");
+
+            var track = new Track
+            {
+                Bootcamp = newBootcamp,
+                Description = "Lorem ipsum",
+                TrackName = (random.Next(0, 1) == 1 ? "Prework" : "Postwork") + " for " + newBootcamp.BootcampName
             };
 
-            manager.Create(user, "Pass");
+            int numberOfModules = random.Next(5, 10);
 
-            if (roleManager.Roles.Count() == 0)
+            for (int i = 0; i < numberOfModules; i++)
             {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "Student" });
-                roleManager.Create(new IdentityRole { Name = "Bootcamp" });
+                var module = new Module
+                {
+                    Bootcamp = newBootcamp,
+                    ModuleDescription = "Ipsum dulor",
+                    ModuleName = "Module " + (i + 1)
+                };
+
+                int numberOfChapters = random.Next(3, 12);
+
+                for (int j = 0; j < numberOfChapters; j++)
+                {
+                    var chapter = new Chapter
+                    {
+                        ChapterDescription = "Chapter Description",
+                        ChapterName = "Chapter " + (j + 1),
+                        Likes = random.Next(12, 120)
+                    };
+
+                    module.Chapters.Add(chapter);
+                }
+
+                track.Modules.Add(module);
             }
 
-            User admin = manager.FindByName("SuperUser");
+            newBootcamp.Tracks.Add(track);
 
-            manager.AddToRole(admin.Id, "Admin");
-            */
-        //  This method will be called after migrating to the latest version.
+            context.Entry(newBootcamp).State = System.Data.Entity.EntityState.Modified;
 
-        //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-        //  to avoid creating duplicate seed data. E.g.
-        //
-        //    context.People.AddOrUpdate(
-        //      p => p.FullName,
-        //      new Person { FullName = "Andrew Peters" },
-        //      new Person { FullName = "Brice Lambson" },
-        //      new Person { FullName = "Rowan Miller" }
-        //    );
-        //
-    }
+            context.SaveChanges();
+        }
     }
 }
