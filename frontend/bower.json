@@ -27,7 +27,8 @@
     "jquery-easing": "*",
     "wow": "^1.1.2",
     "font-awesome": "^4.6.3",
-    "bootstrap-formhelpers": "^2.3.0"
+    "bootstrap-formhelpers": "^2.3.0",
+    "navgoco": "^0.2.1"
   },
   "overrides": {
     "bootstrap": {

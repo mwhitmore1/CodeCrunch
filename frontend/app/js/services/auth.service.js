@@ -4,9 +4,9 @@
 	angular
 		.module('app')
 		.factory('authService', authService);
-	authService.$inject = ['apiUrl', '$q', '$http', 'localStorageService', '$location'];
+	authService.$inject = ['$q', '$http', 'localStorageService', '$location'];
 
-	function authService(apiUrl, $q, $http, localStorageService, $location){
+	function authService($q, $http, localStorageService, $location){
 		var state = {
 			loggedIn: false
 		};
@@ -19,7 +19,9 @@
 			init: init
 		};
 
+		var apiUrl = 'http://localhost:57079/';
 	 	return service;
+
 
 	 	function register(registration){
 			var defer = $q.defer();
@@ -39,7 +41,7 @@
 			state.loggedIn = true;
 			var defer = $q.defer();
 
-			var data = 'grant_type=password&username=' + login.username + '&password=' + login.password;
+			var data = 'grant_type=password&username=' + login.userName + '&password=' + login.password;
 
 			$http({
 				method: 'POST', 
