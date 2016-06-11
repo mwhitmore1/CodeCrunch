@@ -50,22 +50,22 @@ namespace CodeCrunch.API.Controllers
             return Ok(returnModel);
         }
 
-        // PUT: api/ModuleAnswers/5
-        [Authorize(Roles = "Admin")]
+        // PUT: upvote
+        [HttpPut]
+        [Route("api/Module/{moduleId}/Question/{questionId}/Answer/{answerId}/UpVote",
+            Name = "UpVoteAnswer")]
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutModuleAnswer(int id, ModuleAnswer moduleAnswer)
+        public async Task<IHttpActionResult> UpVoteAnswer(int answerId)
         {
-            if (!ModelState.IsValid)
+            ModuleAnswer answer = await db.ModuleAnswers.FindAsync(answerId);
+            if (answer == null)
             {
-                return BadRequest(ModelState);
+                return NotFound();
             }
 
-            if (id != moduleAnswer.ModuleAnswerId)
-            {
-                return BadRequest();
-            }
+            answer.UpVote++;
 
-            db.Entry(moduleAnswer).State = EntityState.Modified;
+            db.Entry(answer).State = EntityState.Modified;
 
             try
             {
@@ -73,7 +73,43 @@ namespace CodeCrunch.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ModuleAnswerExists(id))
+                if (!ModuleAnswerExists(answerId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // PUT: downvote
+        [HttpPut]
+        [Route("api/Module/{moduleId}/Question/{questionId}/Answer/{answerId}/DownVote",
+            Name = "DownVoteAnswer")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> DownVoteAnswer(int answerId)
+        {
+            ModuleAnswer answer = await db.ModuleAnswers.FindAsync(answerId);
+            if (answer == null)
+            {
+                return NotFound();
+            }
+
+            answer.DownVote++;
+
+            db.Entry(answer).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ModuleAnswerExists(answerId))
                 {
                     return NotFound();
                 }

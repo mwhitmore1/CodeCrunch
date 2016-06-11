@@ -61,6 +61,80 @@ namespace CodeCrunch.API.Controllers
             return CreatedAtRoute("PostQuestionsForModule", new { moduleId = newQuestion.ModuleQuestionId }, questionReturn);
         }
 
+        // PUT: downvote
+        [HttpPut]
+        [Route("api/Module/{moduleId}/Question/{questionId}/DownVote",
+            Name = "DownVoteQuestion")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> DownVoteQuestion(int questionId)
+        {
+            ModuleQuestion question = await db.ModuleQuestions.FindAsync(questionId);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            question.DownVote++;
+
+            db.Entry(question).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ModuleQuestionExists(questionId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // PUT: upvote
+        [HttpPut]
+        [Route("api/Module/{moduleId}/Question/{questionId}/UpVote",
+            Name = "UpVoteQuestion")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> UpVoteQuestion(int questionId)
+        {
+            ModuleQuestion question = await db.ModuleQuestions.FindAsync(questionId);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            question.UpVote++;
+
+            db.Entry(question).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ModuleQuestionExists(questionId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+
+
         // GET: api/ModuleQuestions
         public List<QuestionReturn> GetModuleQuestions()
         {
