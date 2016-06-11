@@ -184,6 +184,7 @@
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Infrastructure\UserCreator.cs" />
     <Compile Include="Models\AnswerReturn.cs" />
+    <Compile Include="Models\ChapterReturn.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
     <Compile Include="Models\Language.cs" />

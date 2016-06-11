@@ -10,10 +10,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
+using System.Web;
+using System.Threading.Tasks;
 
 namespace CodeCrunch.API.Controllers
 {
-    public class ModulesController : ApiController
+    public class ModulesController : BaseApiController
     {
         private UserContext db = new UserContext();
 
@@ -21,6 +23,48 @@ namespace CodeCrunch.API.Controllers
         public IEnumerable<Module> GetModules()
         {
             return db.Modules.ToList();
+        }
+
+        [Route("api/Modules/CurrentUser", Name = "GetCurrentUserModules")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetCurrentUserModules()
+        {
+            string userId = await _repo.GetUserIdAsync();
+            if (userId == null)
+            {
+                return NotFound();
+            }
+
+            List<Module> modules = db.Modules.Where(m => (m.BootcampId == userId)).ToList();
+            var moduleReturns = new List<Object>(); 
+            foreach(Module m in modules)
+            {
+                List<Object> chapterReturns = new List<Object>();
+                foreach (Chapter c in m.Chapters)
+                {
+                    Object newChapter = new
+                    {
+                        ChapterId = c.ChapterId,
+                        ChapterName = c.ChapterName,
+                        ChapterContent = c.ChapterContent,
+                        ChapterDescription = c.ChapterDescription
+                    };
+
+                    chapterReturns.Add(newChapter);
+                }
+
+                object returnModule = new
+                {
+                    ModuleName = m.ModuleName,
+                    ModuleId = m.ModuleId,
+                    ModuleDescription = m.ModuleDescription,
+                    Chapters = chapterReturns
+                };
+
+                moduleReturns.Add(returnModule);
+            }
+
+            return Ok(moduleReturns);
         }
 
         // GET: api/Modules/5
