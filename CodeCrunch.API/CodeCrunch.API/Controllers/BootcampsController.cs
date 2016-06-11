@@ -55,8 +55,8 @@ namespace CodeCrunch.API.Controllers
         // PUT: api/Bootcamps/5
         [ResponseType(typeof(void))]
         [HttpPut]
-        [Route("api/Bootcamps", Name = "PutCurrentBootcamp")]
-        public async Task<IHttpActionResult> PutCurrentBootcamp(BootcampEditForm bootcampEditForm)
+        [Route("api/Bootcamps/profile/{id}", Name = "PutCurrentBootcamp")]
+        public async Task<IHttpActionResult> PutCurrentBootcamp(string id, BootcampEditForm bootcampEditForm)
         {
             if (bootcampEditForm == null)
             {
@@ -72,6 +72,11 @@ namespace CodeCrunch.API.Controllers
             if (userId == null)
             {
                 return NotFound();
+            }
+
+            if (userId != id)
+            {
+                return BadRequest();
             }
 
             var bootcamp = await db.Bootcamps.FirstAsync(b => b.Id == userId);
