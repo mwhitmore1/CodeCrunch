@@ -10,10 +10,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
+using System.Threading.Tasks;
+using System.Reflection;
 
 namespace CodeCrunch.API.Controllers
 {
-    public class BootcampsController : ApiController
+    public class BootcampsController : BaseApiController
     {
         private UserContext db = new UserContext();
 
@@ -36,19 +38,52 @@ namespace CodeCrunch.API.Controllers
             return Ok(bootcamp);
         }
 
+        [HttpGet]
+        [Route("api/Bootcamps/Profile")]
+        public async Task<IHttpActionResult> GetBootcampProfile()
+        {
+            string userId = await _repo.GetUserIdAsync();
+            if (userId == null)
+            {
+                return NotFound();
+            }
+
+            var bootcamp = db.Bootcamps.Where(b => b.Id == userId);
+            return Ok();
+        }
+
         // PUT: api/Bootcamps/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBootcamp(string id, Bootcamp bootcamp)
+        [HttpPut]
+        [Route("api/Bootcamps", Name = "PutCurrentBootcamp")]
+        public async Task<IHttpActionResult> PutCurrentBootcamp(BootcampEditForm bootcampEditForm)
         {
+            if (bootcampEditForm == null)
+            {
+                return BadRequest();
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != bootcamp.Id)
+            string userId = await _repo.GetUserIdAsync();
+            if (userId == null)
             {
-                return BadRequest();
+                return NotFound();
             }
+
+            var bootcamp = await db.Bootcamps.FirstAsync(b => b.Id == userId);
+
+            bootcamp.BootcampName = bootcampEditForm.BootcampName ?? bootcamp.BootcampName;
+            bootcamp.BootcampSite = bootcampEditForm.BootcampSite ?? bootcamp.BootcampSite;
+            bootcamp.BootcampCity = bootcampEditForm.BootcampCity ?? bootcamp.BootcampCity;
+            bootcamp.BootcampState = bootcampEditForm.BootcampState ?? bootcamp.BootcampState;
+            bootcamp.BootcampAddress = bootcampEditForm.BootcampAddress ?? bootcamp.BootcampAddress;
+            bootcamp.UserName = bootcampEditForm.UserName ?? bootcamp.UserName;
+            bootcamp.Email = bootcampEditForm.Email ?? bootcamp.Email;
+            bootcamp.LinkedIn = bootcampEditForm.LinkedIn ?? bootcamp.LinkedIn;
 
             db.Entry(bootcamp).State = EntityState.Modified;
 
@@ -58,14 +93,7 @@ namespace CodeCrunch.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BootcampExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return StatusCode(HttpStatusCode.NoContent);

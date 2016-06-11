@@ -47,7 +47,8 @@ namespace CodeCrunch.API.Controllers
                         ChapterId = c.ChapterId,
                         ChapterName = c.ChapterName,
                         ChapterContent = c.ChapterContent,
-                        ChapterDescription = c.ChapterDescription
+                        ChapterDescription = c.ChapterDescription,
+                        Likes = c.Likes
                     };
 
                     chapterReturns.Add(newChapter);

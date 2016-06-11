@@ -165,9 +165,13 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BootcampsController.cs" />
-    <Compile Include="Migrations\201606102047348_initial.cs" />
-    <Compile Include="Migrations\201606102047348_initial.Designer.cs">
-      <DependentUpon>201606102047348_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201606111942596_again.cs" />
+    <Compile Include="Migrations\201606111942596_again.Designer.cs">
+      <DependentUpon>201606111942596_again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606112113164_again2.cs" />
+    <Compile Include="Migrations\201606112113164_again2.Designer.cs">
+      <DependentUpon>201606112113164_again2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerFactory.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="Infrastructure\UserContext.cs" />
     <Compile Include="Infrastructure\UserCreator.cs" />
     <Compile Include="Models\AnswerReturn.cs" />
+    <Compile Include="Models\BootcampEditForm .cs" />
     <Compile Include="Models\ChapterReturn.cs" />
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\CreateRoleBIndingModel.cs" />
@@ -211,8 +216,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606102047348_initial.resx">
-      <DependentUpon>201606102047348_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606111942596_again.resx">
+      <DependentUpon>201606111942596_again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606112113164_again2.resx">
+      <DependentUpon>201606112113164_again2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
