@@ -19,6 +19,48 @@ namespace CodeCrunch.API.Controllers
     {
         private UserContext db = new UserContext();
 
+        [HttpGet]
+        [Route("api/Module/{moduleId}/Questions", Name = "GetQuestionsForModule")]
+        public List<QuestionReturn> GetQuestionsForModule(int moduleId)
+        {
+            var data = db.ModuleQuestions.Where(q => q.ModuleId == moduleId).ToList();
+
+            var result = new List<QuestionReturn>();
+            foreach (ModuleQuestion q in data)
+            {
+                QuestionFactory factory = new QuestionFactory();
+                var returnModel = factory.ModelToReturn(q);
+
+                result.Add(returnModel);
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("api/Module/{moduleId}/Questions", Name = "PostQuestionsForModule")]
+        public async Task<IHttpActionResult> PostQuestionsForModule(QuestionForm form)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Get the user's id from the token
+            string name = HttpContext.Current.User.Identity.Name;
+            User user = await _repo.FindUserByName(name);
+
+            QuestionFactory factory = new QuestionFactory();
+            ModuleQuestion newQuestion = factory.FormToModel(form, user.Id);
+
+            db.ModuleQuestions.Add(newQuestion);
+            await db.SaveChangesAsync();
+
+            QuestionReturn questionReturn = factory.ModelToReturn(newQuestion);
+
+            return CreatedAtRoute("PostQuestionsForModule", new { moduleId = newQuestion.ModuleQuestionId }, questionReturn);
+        }
+
         // GET: api/ModuleQuestions
         public List<QuestionReturn> GetModuleQuestions()
         {
@@ -35,9 +77,10 @@ namespace CodeCrunch.API.Controllers
 
             return result;
         }
-
+        
         // GET: api/ModuleQuestions/5
         [ResponseType(typeof(QuestionReturn))]
+        [Route("api/ModuleQuestions/{id}", Name = "GetModuleQuestion")]
         public async Task<IHttpActionResult> GetModuleQuestion(int id)
         {
             ModuleQuestion moduleQuestion = await db.ModuleQuestions.FindAsync(id);
@@ -48,7 +91,7 @@ namespace CodeCrunch.API.Controllers
 
             QuestionFactory factory = new QuestionFactory();
             QuestionReturn returnModel = factory.ModelToReturn(moduleQuestion);
-
+            
             return Ok(returnModel);
         }
 
@@ -88,29 +131,7 @@ namespace CodeCrunch.API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ModuleQuestions
-        [ResponseType(typeof(ModuleQuestion))]
-        public async Task<IHttpActionResult> PostModuleQuestion(QuestionForm form)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            // Get the user's id from the token
-            string name = HttpContext.Current.User.Identity.Name;
-            User user = await _repo.FindUserByName(name);
-
-            QuestionFactory factory = new QuestionFactory();
-            ModuleQuestion newQuestion = factory.FormToModel(form, user.Id);
-
-            db.ModuleQuestions.Add(newQuestion);
-            await db.SaveChangesAsync();
-
-            QuestionReturn questionReturn = factory.ModelToReturn(newQuestion);
-
-            return CreatedAtRoute("DefaultApi", new { id = newQuestion.ModuleQuestionId }, questionReturn);
-        }
+        
 
         // DELETE: api/ModuleQuestions/5
         [Authorize(Roles = "Admin")]

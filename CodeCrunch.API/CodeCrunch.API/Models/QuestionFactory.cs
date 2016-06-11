@@ -44,7 +44,7 @@ namespace CodeCrunch.API.Models
             QuestionReturn returnModel = new QuestionReturn()
             {
                 Text = q.Text,
-                UserName = (q.User != null) ? q.User.UserName : HttpContext.Current.User.Identity.Name,
+                UserName = (q.User == null) ? HttpContext.Current.User.Identity.Name : q.User.UserName,
                 UpVote = q.UpVote,
                 DownVote = q.DownVote,
                 ModuleAnswers = returnAnswers,
