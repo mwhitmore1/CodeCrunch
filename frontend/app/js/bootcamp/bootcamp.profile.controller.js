@@ -5,10 +5,10 @@
         .module('app')
         .controller('BootcampProfileController', BootcampProfileController);
 
-    BootcampProfileController.$inject = ['bootcampFactory', '$stateParams','toastr'];
+    BootcampProfileController.$inject = ['bootcampFactory', '$stateParams','toastr', 'dataHolderService'];
 
     /* @ngInject */
-    function BootcampProfileController(bootcampFactory, $stateParams,toastr) {
+    function BootcampProfileController(bootcampFactory, $stateParams,toastr, dataHolderService) {
         var vm = this;
         vm.title = 'BootCampProfileController';
         vm.bootcamps = [];
@@ -20,8 +20,8 @@
             bootcampFactory.getById($stateParams.bootcampId)
                 .then(function(response) {
                         vm.bootcamp = response;
-                        //vm.bootcamp.tags = [];
-                        console.log(vm.bootcamp);
+                        dataHolderService.modules = response.modules;
+                        vm.modules = dataHolderService.modules;
                     },
                     function(error) {
                         toastr.error('There has been an error');

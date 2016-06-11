@@ -106,7 +106,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label" for="signin"> </label>
                                                     <div class="controls">
-                                                        <button ng-click="appController.loginUser()" id="signin" class="btn btn-success">Sign In</button>
+                                                        <button data-dismiss="modal" ng-click="appController.loginUser()" id="signin" class="btn btn-success">Sign In</button>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -228,7 +228,7 @@
                                                     <label class="control-label" for="confirmsignup">
                                                     </label>
                                                     <div class="controls">
-                                                        <button ng-click="appController.registerUser()" id="confirmsignup" name="confirmsignup" class="btn btn-success">Signup</button>
+                                                        <button ng-click="appController.registerUser()" id="confirmsignup" name="confirmsignup" class="btn btn-success close">Signup</button>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -238,7 +238,7 @@
                             </div>
                             <div class="modal-footer">
                                 <center>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                    <button type="button" class="btn btn-default">Close
                                     </button>
                                 </center>
                             </div>
@@ -444,6 +444,15 @@
     <script src="js/home/app.controller.js"></script>
     <script src="js/home/browseTracks.controller.js"></script>
     <script src="js/home/home.controller.js"></script>
+    <script src="js/discussion/discussion.controller.js"></script>
+    <script src="js/services/auth.intercepter.js"></script>
+    <script src="js/services/auth.service.js"></script>
+    <script src="js/services/bootcamp.data.service.js"></script>
+    <script src="js/services/bootcamp.factory.js"></script>
+    <script src="js/services/chapter.factory.js"></script>
+    <script src="js/services/module.factory.js"></script>
+    <script src="js/services/service.generator.js"></script>
+    <script src="js/services/track.factory.js"></script>
     <script src="js/bootcamp/bootcamp.addChapter.controller.js"></script>
     <script src="js/bootcamp/bootcamp.controller.js"></script>
     <script src="js/bootcamp/bootcamp.dashboard.controller.js"></script>
@@ -452,14 +461,6 @@
     <script src="js/bootcamp/bootcamp.profile.controller.js"></script>
     <script src="js/bootcamp/bootcamp.students.controller.js"></script>
     <script src="js/bootcamp/bootcamp.tracks.controller.js"></script>
-    <script src="js/discussion/discussion.controller.js"></script>
-    <script src="js/services/auth.intercepter.js"></script>
-    <script src="js/services/auth.service.js"></script>
-    <script src="js/services/bootcamp.factory.js"></script>
-    <script src="js/services/chapter.factory.js"></script>
-    <script src="js/services/module.factory.js"></script>
-    <script src="js/services/service.generator.js"></script>
-    <script src="js/services/track.factory.js"></script>
     <script src="js/student/student.controller.js"></script>
     <script src="js/student/student.profile.controller.js"></script>
     <script src="js/student/student.progress.controller.js"></script>

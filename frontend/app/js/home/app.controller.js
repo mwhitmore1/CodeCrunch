@@ -14,7 +14,6 @@
             console.log("hello world");
             authService.login(vm.loginForm).then(
                 function(response) {
-                    console.log(response);
                     toastr.success('Login successful!');
                     $state.go('bootcamp.profile', { bootcampId: response.userID });
                 },
