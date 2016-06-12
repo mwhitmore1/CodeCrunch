@@ -54,6 +54,12 @@
         "src/jquery.navgoco.min.js",
         "src/jquery.navgoco.css"
       ]
+    },
+    "angular-xeditable": {
+      "main": [
+        "dist/css/xeditable.css",
+        "dist/js/xeditable.min.js"
+      ]
     }
   },
   "resolutions": {
