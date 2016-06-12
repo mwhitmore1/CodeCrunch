@@ -20,7 +20,7 @@ namespace CodeCrunch.API.Controllers
         private UserContext db = new UserContext();
 
         [HttpGet]
-        [Route("api/Module/{moduleId}/Questions", Name = "GetQuestionsForModule")]
+        [Route("api/Modules/{moduleId}/Questions", Name = "GetQuestionsForModule")]
         public List<QuestionReturn> GetQuestionsForModule(int moduleId)
         {
             var data = db.ModuleQuestions.Where(q => q.ModuleId == moduleId).ToList();
@@ -38,7 +38,7 @@ namespace CodeCrunch.API.Controllers
         }
 
         [HttpPost]
-        [Route("api/Module/{moduleId}/Questions", Name = "PostQuestionsForModule")]
+        [Route("api/Modules/{moduleId}/Questions", Name = "PostQuestionsForModule")]
         public async Task<IHttpActionResult> PostQuestionsForModule(QuestionForm form)
         {
             if (!ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace CodeCrunch.API.Controllers
 
         // PUT: downvote
         [HttpPut]
-        [Route("api/Module/{moduleId}/Question/{questionId}/DownVote",
+        [Route("api/Modules/{moduleId}/Questions/{questionId}/DownVote",
             Name = "DownVoteQuestion")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> DownVoteQuestion(int questionId)
@@ -99,7 +99,7 @@ namespace CodeCrunch.API.Controllers
 
         // PUT: upvote
         [HttpPut]
-        [Route("api/Module/{moduleId}/Question/{questionId}/UpVote",
+        [Route("api/Modules/{moduleId}/Questions/{questionId}/UpVote",
             Name = "UpVoteQuestion")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> UpVoteQuestion(int questionId)

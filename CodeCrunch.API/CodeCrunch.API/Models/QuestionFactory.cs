@@ -30,6 +30,7 @@ namespace CodeCrunch.API.Models
                 {
                     var newAnswer = new AnswerReturn()
                     {
+                        ModuleAnswerId = a.ModuleAnswerId,
                         Text = a.Text,
                         UserName = a.User.UserName,
                         UpVote = a.UpVote,
@@ -43,6 +44,7 @@ namespace CodeCrunch.API.Models
             
             QuestionReturn returnModel = new QuestionReturn()
             {
+                ModuleQuestionId = q.ModuleQuestionId,
                 Text = q.Text,
                 UserName = (q.User == null) ? HttpContext.Current.User.Identity.Name : q.User.UserName,
                 UpVote = q.UpVote,

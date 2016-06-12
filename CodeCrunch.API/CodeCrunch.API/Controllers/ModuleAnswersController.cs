@@ -52,7 +52,7 @@ namespace CodeCrunch.API.Controllers
 
         // PUT: upvote
         [HttpPut]
-        [Route("api/Module/{moduleId}/Question/{questionId}/Answer/{answerId}/UpVote",
+        [Route("api/Modules/{moduleId}/Answers/{answerId}/UpVote",
             Name = "UpVoteAnswer")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> UpVoteAnswer(int answerId)
@@ -88,7 +88,7 @@ namespace CodeCrunch.API.Controllers
 
         // PUT: downvote
         [HttpPut]
-        [Route("api/Module/{moduleId}/Question/{questionId}/Answer/{answerId}/DownVote",
+        [Route("api/Modules/{moduleId}/Answers/{answerId}/DownVote",
             Name = "DownVoteAnswer")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> DownVoteAnswer(int answerId)

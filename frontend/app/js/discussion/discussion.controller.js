@@ -5,21 +5,58 @@
         .module('app')
         .controller('DiscussionController', DiscussionController);
 
-    DiscussionController.$inject = ['serviceGenerator', 'apiUrl', '$http'];
+    DiscussionController.$inject = ['serviceGenerator', 'apiUrl', '$http', '$state'];
 
     /* @ngInject */
-    function DiscussionController(serviceGenerator, apiUrl, $http) {
+    function DiscussionController(serviceGenerator, apiUrl, $http, $state) {
         var vm = this;
         vm.title = 'DiscussionController';
         var moduleId = 1;
-        var url = apiUrl + 'api/QuestionsForModule/' + moduleId;
+        var url = apiUrl + 'Modules/' + moduleId + '/Questions';
         var questionsForModule = serviceGenerator(url, 'Questions');
-        
-        var postAnswerUrl = apiUrl + 'api/ModuleAnswers';
-        var moduleAnswers = serviceGenerator(postAnswerUrl, 'answers');
+        console.log(url);
 
-        vm.postAnswer = function(data){
-            moduleAnswers.create(data);
+        vm.postAnswer = function(questionId){
+            var postAnswerUrl = url + '/' + questionId;
+            var moduleAnswers = serviceGenerator(postAnswerUrl, 'answer');
+            moduleAnswers.create(data).then(function(response){
+                 $state.go($state.current, {}, {reload: true});
+            }, function(error){});
+
+        };
+
+        vm.upVoteQuestion = function(questionId){
+            var postAnswerUrl = url + '/' + questionId;
+            var moduleAnswers = serviceGenerator(postAnswerUrl, 'answer');
+            moduleAnswers.upVote().then(function(response){
+                 $state.go($state.current, {}, {reload: true});
+            }, function(error){});
+        };
+
+        vm.downVoteQuestion = function(questionId){
+            var postAnswerUrl = url + '/' + questionId;
+            var moduleAnswers = serviceGenerator(postAnswerUrl, 'answer');
+            moduleAnswers.downVote().then(function(response){
+                 $state.go($state.current, {}, {reload: true});
+            }, function(error){});
+        };
+
+        vm.upVoteAnswer = function(answerId){
+            console.log('called');
+            var postAnswerUrl = apiUrl + 'Modules/' + moduleId +  '/Answers/' + answerId;
+            var moduleAnswers = serviceGenerator(postAnswerUrl, 'answer');
+            moduleAnswers.upVote().then(function(response){
+                 $state.go($state.current, {}, {reload: true});
+            }, function(error){});
+        };
+
+        vm.downVoteAnswer = function(answerId){
+            console.log(answerId);
+            var postAnswerUrl = apiUrl + 'Modules/' + moduleId + '/Answers/' + answerId;
+            var moduleAnswers = serviceGenerator(postAnswerUrl, 'answer');
+            moduleAnswers.downVote().then(function(response){
+                 $state.go($state.current, {}, {reload: true});
+            }, function(error){});
         };
 
         activate();
