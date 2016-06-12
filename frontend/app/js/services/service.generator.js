@@ -86,38 +86,37 @@
                         });
 
                         return deferred.promise;
-                    },
-                    upVote: function upVote(){
-                        var deferred = $q.defer();
+                },
+                upVote: function upVote(){
+                    var deferred = $q.defer();
 
-                        $http.put(endpoint + '/UpVote')
-                            .success(function (data) {
-                                deferred.resolve(data);
-                            })
-                            .error(function (error) {
-                                console.log(error);
-                                toastr.error("There was a problem up voting " + entityName.toLowerCase() + "s.");
-                                deferred.reject("There was a problem fetching " + entityName.toLowerCase() + "s.");
-                            });
+                    $http.put(endpoint + '/UpVote')
+                        .success(function (data) {
+                            deferred.resolve(data);
+                        })
+                        .error(function (error) {
+                            console.log(error);
+                            toastr.error("There was a problem up voting " + entityName.toLowerCase() + "s.");
+                            deferred.reject("There was a problem fetching " + entityName.toLowerCase() + "s.");
+                        });
 
-                        return deferred.promise;
-                    },
-                    downVote: function downVote(){
-                        var deferred = $q.defer();
+                    return deferred.promise;
+                },
+                downVote: function downVote(){
+                    var deferred = $q.defer();
 
-                        $http.put(endpoint + '/downVote')
-                            .success(function (data) {
-                                deferred.resolve(data);
-                            })
-                            .error(function (error) {
-                                console.log(error);
-                                toastr.error("There was a problem down voting " + entityName.toLowerCase() + "s.");
-                                deferred.reject("There was a problem fetching " + entityName.toLowerCase() + "s.");
-                            });
+                    $http.put(endpoint + '/downVote')
+                        .success(function (data) {
+                            deferred.resolve(data);
+                        })
+                        .error(function (error) {
+                            console.log(error);
+                            toastr.error("There was a problem down voting " + entityName.toLowerCase() + "s.");
+                            deferred.reject("There was a problem fetching " + entityName.toLowerCase() + "s.");
+                        });
 
-                        return deferred.promise;
-                    }
-                };
+                    return deferred.promise;
+                }
             };
         };
     }
