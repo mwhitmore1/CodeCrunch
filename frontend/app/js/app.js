@@ -6,10 +6,15 @@
             'toastr',
             'xeditable'
         ])
+
+    .run(function(editableOptions){
+        editableOptions.theme = 'bs3';
+    })
       
     .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-           
+        
             $urlRouterProvider.otherwise("home");
+
             $stateProvider
                 .state('home', { url: '/home', templateUrl: '/templates/home/home.html', controller: 'HomeController as home' })
                 .state('discussion', { url: '/discussion', templateUrl: '/templates/discussion.html', controller: 'DiscussionController as discussion' })
