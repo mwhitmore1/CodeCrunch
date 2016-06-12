@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function chapterFactory(serviceGenerator, apiUrl) {
-        return serviceGenerator(apiUrl, 'chapter');
+        return serviceGenerator(apiUrl + 'chapters', 'chapter');
     }
 })();

@@ -5,7 +5,7 @@
         .module('app')
         .controller('AppController', AppController);
 
-    AppController.$inject = ['authService','$state','toastr'];
+    AppController.$inject = ['authService', '$state', 'toastr'];
 
     /* @ngInject */
     function AppController(authService, $state, toastr) {
@@ -24,13 +24,26 @@
             );
         };
 
-         vm.registerUser = function(){	
+        vm.registerUser = function() {
             authService.register(vm.registerForm).then(
-                function(response){
+                function(response) {
                     console.log(response);
                     toastr.success('Registration successful!');
                     /*$state.go('/login');*/
-                }, function(error){
+                },
+                function(error) {
+                    toastr.error("Error: " + error.message);
+                    console.log("Error: " + error.message + " error.status");
+                });
+        };
+
+        vm.logoutUser = function() {
+            authService.logout().then(
+                function(response) {
+                    toastr.success('Logout successful!');
+                    /*$state.go('/login');*/
+                },
+                function(error) {
                     toastr.error("Error: " + error.message);
                     console.log("Error: " + error.message + " error.status");
                 });

@@ -5,23 +5,25 @@
         .module('app')
         .controller('BootcampProfileController', BootcampProfileController);
 
-    BootcampProfileController.$inject = ['bootcampFactory', '$stateParams','toastr', 'dataHolderService'];
+    BootcampProfileController.$inject = ['bootcampFactory', '$stateParams', 'toastr', 'dataHolderService'];
 
     /* @ngInject */
-    function BootcampProfileController(bootcampFactory, $stateParams,toastr, dataHolderService) {
+    function BootcampProfileController(bootcampFactory, $stateParams, toastr, dataHolderService) {
         var vm = this;
         vm.title = 'BootCampProfileController';
         vm.bootcamps = [];
         vm.bootcamp = {};
+        vm.editingName = false;
 
-        //vm.availableTags = ["C#", ".NET", "JavaScript"];
+        
 
         vm.getBootCamp = function() {
             bootcampFactory.getById($stateParams.bootcampId)
                 .then(function(response) {
                         vm.bootcamp = response;
-                        dataHolderService.modules = response.modules;
-                        vm.modules = dataHolderService.modules;
+                        console.log(vm.bootcamp);
+                        // dataHolderService.modules = response.modules;
+                        // vm.modules = dataHolderService.modules;
                     },
                     function(error) {
                         toastr.error('There has been an error');
@@ -36,7 +38,6 @@
                 .then(function(response) {
                         vm.bootcamps.push(data);
                         console.log(data);
-                        
                     },
                     function(error) {
                         toastr.error('There has been an error');
@@ -55,14 +56,17 @@
         };
 
 
-        vm.updateBootCamp = function(bootcamp) {
-            bootcampFactory.update(bootcamp.bootcampId, bootcamp)
-                .then(function(response) {
-                    //add code here when db is up to date
-                    },
-                    function(error) {
-                        toastr.error('There has been an error');
-                    });
+
+
+        vm.updateBootCamp = function() {
+            console.log(vm.bootcamp.id);
+            // bootcampFactory.update(vm.bootcamp.Id, vm.bootcamp)
+            //     .then(function(response) {
+            //             //add code here when db is up to date
+            //         },
+            //         function(error) {
+            //             toastr.error('There has been an error');
+            //         });
         };
     }
 })();

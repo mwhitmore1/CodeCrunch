@@ -62,7 +62,7 @@
 		function logout(){
 			state.loggedIn = false;
 			localStorageService.remove('authorizationData');
-			$location.path('#/login');
+			$location.path('#/home');
 		}
 				
 		function init(){
