@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function moduleFactory(serviceGenerator, apiUrl) {
-        return serviceGenerator(apiUrl, 'modules');
+        return serviceGenerator(apiUrl + 'modules/CurrentUser', 'modules');
     }
 })();
