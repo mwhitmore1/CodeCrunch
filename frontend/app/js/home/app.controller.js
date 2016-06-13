@@ -27,13 +27,24 @@
         vm.registerUser = function() {
             authService.register(vm.registerForm).then(
                 function(response) {
-                    console.log(response);
+                    // console.log(response);
                     toastr.success('Registration successful!');
                     /*$state.go('/login');*/
                 },
                 function(error) {
-                    toastr.error("Error: " + error.message);
-                    console.log("Error: " + error.message + " error.status");
+                    if (error.status == 400) {
+                        var errString = "";
+                        for (var i in error.data.modelState){
+                            errString += "\n";
+                            errString += error.data.modelState[i][0];
+                            console.log(i);
+                        };
+                        toastr.error(error.data.message  + errString);
+                        console.log(error.data.modelState);
+                    }else {
+                        toastr.error("Error: " + error.data.error_description);
+                        console.log("Error: " + error.data.error_description + ". error status:" + error.status);
+                    };
                 });
         };
 
