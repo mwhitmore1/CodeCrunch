@@ -154,6 +154,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ClassDiagram1.cd" />
+    <None Include="Properties\PublishProfiles\codecrunchapi - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -169,9 +170,9 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BootcampsController.cs" />
-    <Compile Include="Migrations\201606120514166_GatherData.cs" />
-    <Compile Include="Migrations\201606120514166_GatherData.Designer.cs">
-      <DependentUpon>201606120514166_GatherData.cs</DependentUpon>
+    <Compile Include="Migrations\201606132216045_InitialCreate.cs" />
+    <Compile Include="Migrations\201606132216045_InitialCreate.Designer.cs">
+      <DependentUpon>201606132216045_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerFactory.cs" />
@@ -217,8 +218,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606120514166_GatherData.resx">
-      <DependentUpon>201606120514166_GatherData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606132216045_InitialCreate.resx">
+      <DependentUpon>201606132216045_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
