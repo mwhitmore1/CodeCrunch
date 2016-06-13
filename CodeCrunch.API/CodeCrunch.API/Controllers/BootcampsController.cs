@@ -12,6 +12,7 @@ using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
 using System.Threading.Tasks;
 using System.Reflection;
+using AutoMapper;
 
 namespace CodeCrunch.API.Controllers
 {
@@ -20,10 +21,10 @@ namespace CodeCrunch.API.Controllers
         private UserContext db = new UserContext();
 
         // GET: api/Bootcamps
-        public IQueryable<Bootcamp> GetUsers()
-        {
-            return db.Bootcamps;
-        }
+        //public IQueryable<Bootcamp> GetUsers()
+        //{
+        //    return db.Bootcamps;
+        //}
 
         // GET: api/Bootcamps/5
         [ResponseType(typeof(Bootcamp))]
@@ -35,7 +36,10 @@ namespace CodeCrunch.API.Controllers
                 return NotFound();
             }
 
-            return Ok(bootcamp);
+            Mapper.Initialize(cfg => cfg.CreateMap<Bootcamp, BootcampReturn>());
+            BootcampReturn bootcampReturn = Mapper.Map<BootcampReturn>(bootcamp);
+
+            return Ok(bootcampReturn);
         }
 
         [HttpGet]
@@ -49,7 +53,11 @@ namespace CodeCrunch.API.Controllers
             }
 
             var bootcamp = db.Bootcamps.First(b => b.Id == userId);
-            return Ok(bootcamp);
+
+            Mapper.Initialize(cfg => cfg.CreateMap<Bootcamp, BootcampReturn>());
+            BootcampReturn bootcampReturn = Mapper.Map<BootcampReturn>(bootcamp);
+
+            return Ok(bootcampReturn);
         }
 
         // PUT: api/Bootcamps/5
