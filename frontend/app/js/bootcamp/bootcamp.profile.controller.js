@@ -18,7 +18,7 @@
         
 
         vm.getBootCamp = function() {
-            bootcampFactory.getById($stateParams.bootcampId)
+            bootcampFactory.getAll($stateParams.bootcampId)
                 .then(function(response) {
                         vm.bootcamp = response;
                         console.log(vm.bootcamp);
@@ -59,14 +59,14 @@
 
 
         vm.updateBootCamp = function() {
-            console.log(vm.bootcamp.id);
-            // bootcampFactory.update(vm.bootcamp.Id, vm.bootcamp)
-            //     .then(function(response) {
-            //             //add code here when db is up to date
-            //         },
-            //         function(error) {
-            //             toastr.error('There has been an error');
-            //         });
+            console.log(vm.bootcampEdit);
+            bootcampFactory.update($stateParams.bootcampId, vm.bootcampEdit)
+                .then(function(response) {
+                        //add code here when db is up to date
+                    },
+                    function(error) {
+                        toastr.error('There has been an error');
+                    });
         };
     }
 })();

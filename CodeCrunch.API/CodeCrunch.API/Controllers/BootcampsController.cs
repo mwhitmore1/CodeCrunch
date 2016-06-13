@@ -48,8 +48,8 @@ namespace CodeCrunch.API.Controllers
                 return NotFound();
             }
 
-            var bootcamp = db.Bootcamps.Where(b => b.Id == userId);
-            return Ok();
+            var bootcamp = db.Bootcamps.First(b => b.Id == userId);
+            return Ok(bootcamp);
         }
 
         // PUT: api/Bootcamps/5

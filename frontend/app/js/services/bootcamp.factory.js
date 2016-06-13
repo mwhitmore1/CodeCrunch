@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function bootcampFactory(serviceGenerator, apiUrl) {
-        return serviceGenerator(apiUrl + 'bootcamps', 'bootcamp');
+        return serviceGenerator(apiUrl + 'bootcamps/profile', 'bootcamp');
     }
 })();
