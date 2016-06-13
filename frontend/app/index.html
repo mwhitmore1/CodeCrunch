@@ -54,7 +54,7 @@
                                                 </a>
                                 </li>
                                 <li class="">
-                                    <a href="#signup" data-toggle="tab">Register
+                                    <a href="#signup" data-toggle="tab" data-opentab="0">Register
                                                 </a>
                                 </li>
                                 <li class="">
@@ -120,14 +120,14 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="Email">Email:</label>
                                                 <div class="controls">
-                                                    <input ng-model="appController.registerForm.emailAddress" id="Email" name="Email" class="form-control input-large" type="text" placeholder="CLannister@CRock.com">
+                                                    <input ng-model="appController.registerForm.emailAddress" id="Email" name="Email" class="form-control input-large" type="text" placeholder="CLannister@CRock.com" required>
                                                 </div>
                                             </div>
                                             <!-- Text input-->
                                             <div class="control-group">
                                                 <label class="control-label" for="userid">Bootcamp Name:</label>
                                                 <div class="controls">
-                                                    <input ng-model="appController.registerForm.bootcampName" id="name" name="name" class="form-control input-large" type="text" placeholder="Cersi">
+                                                    <input ng-model="appController.registerForm.bootcampName" id="name" name="name" class="form-control input-large" type="text" placeholder="Cersi" required>
                                                 </div>
                                             </div>
                                             <!-- Location -->
@@ -198,7 +198,7 @@
                                                 <label class="control-label" for="password">Password:
                                                 </label>
                                                 <div class="controls">
-                                                    <input ng-model="appController.registerForm.password" id="password" name="password" class="form-control input-large" type="password" placeholder="********">
+                                                    <input ng-model="appController.registerForm.password" id="password" name="password" class="form-control input-large" type="password" placeholder="********" required>
                                                     <em>1-8 Characters</em>
                                                     </input>
                                                 </div>
@@ -207,7 +207,7 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
                                                 <div class="controls">
-                                                    <input ng-model="appController.registerForm.confirmPassword" id="reenterpassword" class="form-control input-large" name="reenterpassword" type="password" placeholder="********" />
+                                                    <input ng-model="appController.registerForm.confirmPassword" id="reenterpassword" class="form-control input-large" name="reenterpassword" type="password" placeholder="********" required />
                                                 </div>
                                             </div>
                                             <!-- RegisterCheck student or bootcamp Multiple Radios (inline) -->
@@ -225,7 +225,7 @@
                                             </div>
                                             <div class="control-group">
                                                 <div class="controls">
-                                                    <a data-toggle="tab" href="#signin">
+                                                    <a href="#signin">
                                                         <button ng-click="appController.registerUser()" id="confirmsignup" name="confirmsignup" class="btn btn-success">Register</button>
                                                     </a>
                                                 </div>
