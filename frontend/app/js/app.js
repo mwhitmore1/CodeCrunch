@@ -17,7 +17,7 @@
 
             $stateProvider
                 .state('home', { url: '/home', templateUrl: '/templates/home/home.html', controller: 'HomeController as home' })
-                .state('discussion', { url: '/discussion', templateUrl: '/templates/discussion.html', controller: 'DiscussionController as discussion' })
+                .state('discussion', { url: '/discussion', templateUrl: '/templates/discussion/discussion.html', controller: 'DiscussionController as discussion' })
                 .state('browseTracks', { url: '/browseTracks', templateUrl: '/templates/home/browseTracks.html', controller: 'BrowseTracksController as browseTracks' })
                 .state('bootcamp', { url: '/bootcamp', templateUrl: '/templates/bootcamp/bootcamp.index.html', controller: 'BootcampController as bootcamp' })
                     .state('bootcamp.dashboard', { url: '/dashboard', templateUrl: '/templates/bootcamp/bootcamp.dashboard.html', controller: 'BootcampDashboardController as bootcampDashboard' })

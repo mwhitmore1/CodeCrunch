@@ -165,9 +165,9 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BootcampsController.cs" />
-    <Compile Include="Migrations\201606120514166_GatherData.cs" />
-    <Compile Include="Migrations\201606120514166_GatherData.Designer.cs">
-      <DependentUpon>201606120514166_GatherData.cs</DependentUpon>
+    <Compile Include="Migrations\201606131700387_initialCreate.cs" />
+    <Compile Include="Migrations\201606131700387_initialCreate.Designer.cs">
+      <DependentUpon>201606131700387_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnswerFactory.cs" />
@@ -212,8 +212,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606120514166_GatherData.resx">
-      <DependentUpon>201606120514166_GatherData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606131700387_initialCreate.resx">
+      <DependentUpon>201606131700387_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
