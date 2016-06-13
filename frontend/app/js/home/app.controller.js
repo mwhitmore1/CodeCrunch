@@ -18,8 +18,8 @@
                     $state.go('bootcamp.profile', { bootcampId: response.userID });
                 },
                 function(error) {
-                    toastr.error("Error: " + error.message);
-                    console.log("Error: " + error.message + " error.status");
+                    toastr.error("Error: " + error.data.error_description);
+                    console.log("Error: " + error.data.error_descritpion + " error.status");
                 }
             );
         };
