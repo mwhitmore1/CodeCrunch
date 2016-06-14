@@ -9,6 +9,6 @@
 
     /* @ngInject */
     function trackFactory(serviceGenerator, apiUrl) {
-        return serviceGenerator(apiUrl, 'tracks');
+        return serviceGenerator(apiUrl + 'bootcamps/tracks', 'tracks');
     }
 })();

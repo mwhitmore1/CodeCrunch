@@ -689,3 +689,82 @@ body {
 #modulePanel {
   padding:5px;
 }
+
+#browseTracksTitle {
+     color: rgba(0, 0, 102, 0.8);
+ }
+ 
+ #buttonClass {
+     color: rgba(0, 0, 102, 0.8);
+     background-color: #FFFFFF;
+ }
+ 
+ .jumbotron {
+     color: rgb(0, 0, 51);
+     background-color: #FFFFFF;
+ }
+ 
+ #searchBar {
+     text-align: center;
+     margin-bottom: 21px;
+     color: rgba(0, 0, 102, 0.8);
+ }
+ 
+ input[type=text]:focus {
+     width: 100%;
+ }
+ 
+ #jumboTitle {
+     margin-top: -50px;
+     background-color: #8c8c8c;
+     margin-right: -60px;
+     margin-left: -60px;
+     color: #FFFFFF;
+     background-color: rgb(0, 0, 26);
+ }
+ 
+ #scrollTracks {
+     width: 100%;
+     overflow: scroll;
+ }
+ 
+ #scrollTracksTwo {
+     width: 100%;
+     overflow: scroll;
+ }
+ 
+ #darkBlue {
+     background-color: rgb(0, 0, 51);
+ }
+ 
+ #whiteGround {
+     background-color: #FFFFFF;
+     margin-top: 25px;
+ }
+ 
+ #Title {
+     color: rgb(0, 0, 26);
+     margin-top: 45px;
+     margin-bottom: 15px;
+ }
+ 
+ #jumboOne {
+     margin-top: -50px;
+ }
+ 
+ #Title2 {
+   color: rgb(0, 0, 26);
+   margin-top: 45px;
+   margin-bottom: 15px;
+ }
+ 
+ #headerBar {
+     height: 4px;
+     background: #f2f2f2;
+     width: responsive;
+ }
+ 
+ #TitleSet {
+     color: rgb(0, 0, 51);
+     margin-top: -10px;
+ }

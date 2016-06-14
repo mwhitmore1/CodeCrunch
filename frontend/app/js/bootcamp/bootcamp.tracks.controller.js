@@ -9,7 +9,7 @@
     function BootcampTracksController(trackFactory, toastr) {
         var vm = this;
 
-        vm.getTrack = function() {
+        vm.getTracks = function() {
             trackFactory.getAll().then(
                 function(response) {
                     vm.tracks = response.data;
@@ -20,11 +20,13 @@
                 });
         };
 
+        vm.getTracks();
+
         vm.addTrack = function(track) {
             trackFactory.create(track).then(
                 function(response) {
                     vm.tracks.push(response.data);
-                    vm.Track = {};
+                    vm.track = {};
                 },
                 function(error) {
                     toastr.error('There has been an error');
