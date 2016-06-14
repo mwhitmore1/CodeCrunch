@@ -5,17 +5,15 @@
         .module('app')
         .controller('BootcampProfileController', BootcampProfileController);
 
-    BootcampProfileController.$inject = ['bootcampFactory', '$stateParams', 'toastr', 'dataHolderService'];
+    BootcampProfileController.$inject = ['$state', 'bootcampFactory', '$stateParams', 'toastr', 'dataHolderService'];
 
     /* @ngInject */
-    function BootcampProfileController(bootcampFactory, $stateParams, toastr, dataHolderService) {
+    function BootcampProfileController($state, bootcampFactory, $stateParams, toastr, dataHolderService) {
         var vm = this;
         vm.title = 'BootCampProfileController';
         vm.bootcamps = [];
         vm.bootcamp = {};
         vm.editingName = false;
-
-        
 
         vm.getBootCamp = function() {
             bootcampFactory.getAll($stateParams.bootcampId)
@@ -59,14 +57,14 @@
 
 
         vm.updateBootCamp = function() {
-            console.log(vm.bootcampEdit);
-            bootcampFactory.update($stateParams.bootcampId, vm.bootcampEdit)
+            bootcampFactory.update($stateParams.bootcampId, vm.bootcamp)
                 .then(function(response) {
-                        //add code here when db is up to date
+                        $state.go($state.current, {}, { reload: true });
                     },
                     function(error) {
                         toastr.error('There has been an error');
                     });
+
         };
     }
 })();

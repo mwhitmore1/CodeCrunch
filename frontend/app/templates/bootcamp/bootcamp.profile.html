@@ -14,19 +14,17 @@
                 </div>
                 <div class="col-md-8 text-left">
                     <h4>Bootcamp Name:</h4>
-                    <a href="#" editable-text="bootcampProfile.bootcampEdit.bootcampName">{{ bootcampProfile.bootcamp.bootcampName || '[empty]' }}</a>
+                    <a href="#" editable-text="bootcampProfile.bootcamp.bootcampName">{{ bootcampProfile.bootcamp.bootcampName || '[empty]' }}</a>
                     <h4>Email:</h4>
-                    <a href="#" editable-email="bootcampProfile.bootcampEdit.userName">{{ bootcampProfile.bootcamp.userName || '[empty]' }}</a>
+                    <a href="#" editable-email="bootcampProfile.bootcamp.userName">{{ bootcampProfile.bootcamp.userName || '[empty]' }}</a>
                     <h4>Street Address:</h4>
-                    <a href="#" editable-text="bootcampProfile.bootcampEdit.bootcampAddress">{{ bootcampProfile.bootcamp.bootcampAddress || '[empty]' }}</a>
+                    <a href="#" editable-text="bootcampProfile.bootcamp.bootcampAddress">{{ bootcampProfile.bootcamp.bootcampAddress || '[empty]' }}</a>
                     <h4>City:</h4>
-                    <a href="#" editable-text="bootcampProfile.bootcampEdit.bootcampCity">{{ bootcampProfile.bootcamp.bootcampCity || '[empty]' }}</a>
+                    <a href="#" editable-text="bootcampProfile.bootcamp.bootcampCity">{{ bootcampProfile.bootcamp.bootcampCity || '[empty]' }}</a>
                     <div class="control-group">
-                        <label class="control-label" for="state">State:
-                        </label>
+                        <h4>State:</h4>
                         <div class="controls" style="color:black">
-                            <select ng-model="bootcampProfile.bootcampEdit.bootcampState" class="input-medium bfh-states" id="state" name="state" data-country="US" data-state="CA" ng-init="bootcampProfile.bootcampEdit.bootcampState = 'CA'">
-                                <option value=""></option>
+                            <select ng-model="bootcampProfile.bootcamp.bootcampState" class="input-medium bfh-states" id="state" name="state" ng-init="bootcampProfile.bootcamp.bootcampState = bootcampProfile.bootcamp.bootcampState">
                                 <option value="AK">Alaska</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AR">Arkansas</option>
@@ -83,9 +81,10 @@
                             </select>
                         </div>
                     </div>
-                    <a href="#" editable-text="bootcampProfile.bootcampEdit.bootcampSite">{{ bootcampProfile.bootcamp.bootcampSite || '[empty]' }}</a>
+                    <h4>Website:</h4>
+                    <a href="#" editable-text="bootcampProfile.bootcamp.bootcampSite">{{ bootcampProfile.bootcamp.bootcampSite || '[empty]' }}</a>
                     <h4>LinkedIn:</h4>
-                    <a href="#" editable-text="bootcampProfile.bootcampEdit.bootcampLinkedIn">{{ bootcampProfile.bootcamp.linkedIn || '[empty]' }}</a>
+                    <a href="#" editable-text="bootcampProfile.bootcamp.bootcampLinkedIn">{{ bootcampProfile.bootcamp.linkedIn || '[empty]' }}</a>
                     <div id="submitChanges">
                         <button ng-click="bootcampProfile.updateBootCamp()" type="button" class="btn btn-primary">Submit changes</button>
                     </div>

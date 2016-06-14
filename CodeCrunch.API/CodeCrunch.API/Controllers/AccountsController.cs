@@ -12,12 +12,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CodeCrunch.API.Controllers
 {
+    [Authorize]
     [RoutePrefix("Account")]
     public class AccountsController : BaseApiController
     {
         private AuthorizationRepository _repo = new AuthorizationRepository();
-        
-        [Authorize(Roles = "Admin")]
+               
         [Route("user/{id.guid}/roles")]
         [HttpPut]
         public async Task<IHttpActionResult> AssignRolesToUser([FromUri] string id, [FromBody] string[] rolesToAssign)

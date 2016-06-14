@@ -422,9 +422,13 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
+                            <a ng-if=!appController.isLoggedIn() href="#signup" data-toggle="modal" data-target=".bs-modal-sm">
                                 <i class="fa fa-user">    
                                 </i> Login
+                            </a>
+                            <a ng-if=appController.isLoggedIn() ng-click="appController.logoutUser()">
+                                <i class="fa fa-user">    
+                                </i> Log Out
                             </a>
                         </li>
                     </ul>
@@ -461,19 +465,10 @@
     <script src="js/bootcamp/bootcamp.profile.controller.js"></script>
     <script src="js/bootcamp/bootcamp.students.controller.js"></script>
     <script src="js/bootcamp/bootcamp.tracks.controller.js"></script>
-    <script src="js/discussion/discussion.controller.js"></script>
     <script src="js/home/app.controller.js"></script>
     <script src="js/home/browseTracks.controller.js"></script>
     <script src="js/home/home.controller.js"></script>
-    <script src="js/student/student.controller.js"></script>
-    <script src="js/student/student.profile.controller.js"></script>
-    <script src="js/student/student.progress.controller.js"></script>
-    <script src="js/student/student.viewchapter.controller.js"></script>
-    <script src="js/theme/cbpAnimatedHeader.js"></script>
-    <script src="js/theme/classie.js"></script>
-    <script src="js/theme/creative.js"></script>
-    <script src="js/theme/menu.js"></script>
-    <script src="js/theme/scrolling-nav.js"></script>
+    <script src="js/discussion/discussion.controller.js"></script>
     <script src="js/services/auth.intercepter.js"></script>
     <script src="js/services/auth.service.js"></script>
     <script src="js/services/bootcamp.data.service.js"></script>
@@ -482,7 +477,6 @@
     <script src="js/services/module.factory.js"></script>
     <script src="js/services/service.generator.js"></script>
     <script src="js/services/track.factory.js"></script>
-<<<<<<< HEAD
     <script src="js/student/student.controller.js"></script>
     <script src="js/student/student.profile.controller.js"></script>
     <script src="js/student/student.progress.controller.js"></script>
@@ -492,8 +486,6 @@
     <script src="js/theme/creative.js"></script>
     <script src="js/theme/menu.js"></script>
     <script src="js/theme/scrolling-nav.js"></script>
-=======
->>>>>>> bootProfile
     <!--endinject-->
 </body>
 

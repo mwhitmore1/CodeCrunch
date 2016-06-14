@@ -10,6 +10,12 @@
     /* @ngInject */
     function AppController(authService, $state, toastr) {
         var vm = this;
+
+        vm.isLoggedIn = function() {
+            return authService.state.loggedIn;
+        };
+
+
         vm.loginUser = function() {
             console.log("hello world");
             authService.login(vm.loginForm).then(
@@ -34,14 +40,14 @@
                 function(error) {
                     if (error.status == 400) {
                         var errString = "";
-                        for (var i in error.data.modelState){
+                        for (var i in error.data.modelState) {
                             errString += "\n";
                             errString += error.data.modelState[i][0];
                             console.log(i);
                         };
-                        toastr.error(error.data.message  + errString);
+                        toastr.error(error.data.message + errString);
                         console.log(error.data.modelState);
-                    }else {
+                    } else {
                         toastr.error("Error: " + error.data.error_description);
                         console.log("Error: " + error.data.error_description + ". error status:" + error.status);
                     };
@@ -49,15 +55,10 @@
         };
 
         vm.logoutUser = function() {
-            authService.logout().then(
-                function(response) {
-                    toastr.success('Logout successful!');
-                    /*$state.go('/login');*/
-                },
-                function(error) {
-                    toastr.error("Error: " + error.message);
-                    console.log("Error: " + error.message + " error.status");
-                });
+            authService.logout();
+            toastr.success('Logout successful!');
+
+
         };
     }
 })();
