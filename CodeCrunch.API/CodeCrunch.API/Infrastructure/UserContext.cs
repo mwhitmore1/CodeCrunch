@@ -25,6 +25,12 @@ namespace CodeCrunch.API.Infrastructure
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Bootcamp>()
+                .HasMany(b => b.Chapters)
+                .WithOptional(c => c.Bootcamp)
+                .HasForeignKey(c => c.BootcampId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Bootcamp>()
                 .HasMany(b => b.Languages)
                 .WithMany(l => l.Bootcamps)
                 .Map(bl =>
