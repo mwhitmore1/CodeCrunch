@@ -117,18 +117,27 @@ namespace CodeCrunch.API.Controllers
         }
 
         // POST: api/Modules
+        [Route("api/Modules/CurrentUser", Name = "CreateModule")]
+        [HttpPost]
         [ResponseType(typeof(Module))]
-        public IHttpActionResult PostModule(Module module)
+        public async Task<IHttpActionResult> CreateModule(ModuleForm moduleform)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            string userId = await _repo.GetUserIdAsync();
+            if (userId == null)
+            {
+                return NotFound();
+            }
+
+            Module module = modelFactory.FormToModel(moduleform, userId);
             db.Modules.Add(module);
             db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = module.ModuleId }, module);
+            ModuleReturn moduleReturn = modelFactory.ModelToReturn(module);
+            return CreatedAtRoute("CreateModule", new {}, moduleReturn);
         }
 
         // DELETE: api/Modules/5

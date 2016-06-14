@@ -681,3 +681,11 @@ body {
   margin-top: 1%;
 }
 
+#moduleChapterList {
+  height:100px;
+  overflow: scroll;
+}
+
+#modulePanel {
+  padding:5px;
+}

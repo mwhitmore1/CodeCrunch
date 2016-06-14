@@ -11,7 +11,7 @@
         editableOptions.theme = 'bs3';
         $rootScope.$on("$locationChangeStart", function(event, toState, toParams, fromState, fromParams) {
             if (!authService.state.loggedIn && toState.name !== 'home') {
-                $state.go('home');
+                $location.path('#/home');
                 authService.logout();
                 return;
             }

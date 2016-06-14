@@ -13,7 +13,9 @@
         vm.title = 'BootcampModuleController';
         vm.module = {};
         //vm.availableTags = ["C#", ".NET", "JavaScript"];
-        vm.Show="";
+        vm.Show = "";
+        vm.newModule = { moduleName: "", moduleDescription: "" };
+        vm.addNewModule = false;
 
 
         getModules();
@@ -48,17 +50,19 @@
         // };
 
 
-        // vm.addBootCamp = function(bootcamp) {
-        //     moduleFactory.create(bootcamp)
-        //         .then(function(response) {
-        //                 vm.bootcamps.push(data);
-        //                 console.log(data);
-
-        //             },
-        //             function(error) {
-        //                 toastr.error('There has been an error');
-        //             });
-        // };
+        vm.addModule = function() {
+            moduleFactory.create(vm.newModule)
+                .then(function(response) {
+                        vm.module.push(data);
+                        console.log(vm.modules);
+                        vm.newModule = { moduleName: "", moduleDescription: "" };
+                        vm.addNewModule = false;
+                        $state.go($state.current, {}, {reload:true})
+                    },
+                    function(error) {
+                        toastr.error('There has been an error');
+                    });
+        };
 
         // vm.deleteBootCamp = function(bootcamp) {
         //     moduleFactory.remove(bootcamp)
