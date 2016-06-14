@@ -30,8 +30,9 @@ namespace CodeCrunch.API.Models
         public string BootcampCity { get; set; }
         public string BootcampState { get; set; }
         public string BootcampAddress { get; set; }
-        
+
         // Relationships
+        public virtual ICollection<Chapter> Chapters { get; set; }
         public virtual ICollection<Perk> Perks { get; set; }
         public virtual ICollection<Track> Tracks { get; set; }
         public virtual ICollection<Module> Modules { get; set; }

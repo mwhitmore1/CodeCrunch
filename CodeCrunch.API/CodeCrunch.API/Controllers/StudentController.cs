@@ -10,19 +10,19 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CodeCrunch.API.Infrastructure;
 using CodeCrunch.API.Models;
-​
+
 namespace CodeCrunch.API.Controllers
 {
     public class StudentsController : BaseApiController
     {
         private UserContext db = new UserContext();
-​
+        
         // GET: api/Students
         public IQueryable<Student> GetUsers()
         {
             return db.Students;
         }
-​
+        
         // GET: api/Students/5
         [ResponseType(typeof(Student))]
         public IHttpActionResult GetStudent(string id)
@@ -32,10 +32,10 @@ namespace CodeCrunch.API.Controllers
             {
                 return NotFound();
             }
-​
+            
             return Ok(student);
         }
-​
+        
         // PUT: api/Students/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutStudent(string id, Student student)
@@ -44,14 +44,14 @@ namespace CodeCrunch.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-​
+
             if (id != student.Id)
             {
                 return BadRequest();
             }
-​
+
             db.Entry(student).State = EntityState.Modified;
-​
+
             try
             {
                 db.SaveChanges();
@@ -67,10 +67,10 @@ namespace CodeCrunch.API.Controllers
                     throw;
                 }
             }
-​
+
             return StatusCode(HttpStatusCode.NoContent);
         }
-​
+        
         // POST: api/Students
         [ResponseType(typeof(Student))]
         public IHttpActionResult PostStudent(Student student)
@@ -79,9 +79,9 @@ namespace CodeCrunch.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-​
+
             db.Users.Add(student);
-​
+
             try
             {
                 db.SaveChanges();
@@ -97,10 +97,10 @@ namespace CodeCrunch.API.Controllers
                     throw;
                 }
             }
-​
+
             return CreatedAtRoute("DefaultApi", new { id = student.Id }, student);
         }
-​
+        
         // DELETE: api/Students/5
         [ResponseType(typeof(Student))]
         public IHttpActionResult DeleteStudent(string id)
@@ -110,13 +110,13 @@ namespace CodeCrunch.API.Controllers
             {
                 return NotFound();
             }
-​
+
             db.Users.Remove(student);
             db.SaveChanges();
-​
+
             return Ok(student);
         }
-​
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,7 +125,7 @@ namespace CodeCrunch.API.Controllers
             }
             base.Dispose(disposing);
         }
-​
+
         private bool StudentExists(string id)
         {
             return db.Users.Count(e => e.Id == id) > 0;

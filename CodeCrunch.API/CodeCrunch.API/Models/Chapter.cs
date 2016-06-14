@@ -22,6 +22,7 @@ namespace CodeCrunch.API.Models
 
         //Foreign Key
         public int ModuleId { get; set; }
+        public string BootcampId { get; set; }
 
         //Other fields related to model
         public bool CurrentChapter { get; set; }
@@ -31,6 +32,7 @@ namespace CodeCrunch.API.Models
         public string ChapterContent { get; set; }
 
         //Relationships
+        public virtual Bootcamp Bootcamp { get; set; } 
         public virtual Module Module { get; set; }
         public virtual ICollection<Student> CompletedChapterStudents { get; set; }
     }
